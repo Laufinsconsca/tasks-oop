@@ -1,12 +1,31 @@
 package ru.ssau.tk.laufinsconsca.tasks.task1_3;
 
-final class Point {
+import ru.ssau.tk.laufinsconsca.tasks.task_from_1_4_to_1_8.*;
+
+final public class Point {
     private double x, y, z;
-    Point(double x, double y, double z) {
+    public Point(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    public double length(){
+        return Math.sqrt(x*x + y*y + z*z);
+    }
+
     @Override
     public String toString(){
         return x + " " + y + " " + z;
@@ -21,5 +40,6 @@ class Task1_3{
         System.out.println(p1);
         System.out.println(p2);
         System.out.println(p3);
+        System.out.println(Points.length(p1));
     }
 }
