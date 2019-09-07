@@ -1,4 +1,4 @@
-package ru.ssau.tk.laufinsconsca.lab.task1_2;
+package ru.ssau.tk.laufinsconsca.tasks.task1_2;
 
 class Person {
     private String firstName;
