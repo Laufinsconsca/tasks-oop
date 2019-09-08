@@ -1,31 +1,31 @@
 package ru.ssau.tk.laufinsconsca.tasks.task1_1;
 
-class Person {
+public class Person {
     private String firstName;
     private String lastName;
     private int passportId;
 
-    String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    int getPassportId() {
+    public int getPassportId() {
         return passportId;
     }
 
-    void setPassportId(int passportId) {
+    public void setPassportId(int passportId) {
         this.passportId = passportId;
     }
 }
