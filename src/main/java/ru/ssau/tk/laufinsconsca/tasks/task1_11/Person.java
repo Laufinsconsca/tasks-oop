@@ -1,4 +1,4 @@
-package ru.ssau.tk.laufinsconsca.tasks.task1_2;
+package ru.ssau.tk.laufinsconsca.tasks.task1_11;
 
 class Person {
     private String firstName;
@@ -51,16 +51,26 @@ class Person {
     }
 }
 
-class Task1_2{
+class Task1_1{
     public static void main(String[] args) {
         Person firstHuman = new Person();
-        Person secondHuman = new Person("Peter", "Craig");
-        Person thirdHuman = new Person(246429);
-        Person fourthHuman = new Person("Elizabeth", "Bell", 436546);
+        Person secondHuman = new Person();
+        Person thirdHuman = new Person();
 
-        System.out.println("First human: unknown");
-        System.out.println("Second human: " + secondHuman.getFirstName() + " " + secondHuman.getLastName() + ", passport ID: unknown");
-        System.out.println("Third human: noname, passport ID: " + thirdHuman.getPassportId());
-        System.out.println("Fourth human: " + fourthHuman.getFirstName() + " " + fourthHuman.getLastName() + ", passport ID: " + fourthHuman.getPassportId());
+        firstHuman.setFirstName("James");
+        firstHuman.setLastName("Hawkins");
+        firstHuman.setPassportId(236232);
+
+        secondHuman.setFirstName("Kate");
+        secondHuman.setLastName("Wilson");
+        secondHuman.setPassportId(833526);
+
+        thirdHuman.setFirstName("David");
+        thirdHuman.setLastName("Melton");
+        thirdHuman.setPassportId(919424);
+
+        System.out.println(firstHuman.getFirstName() + " " + firstHuman.getLastName() + ", passport ID: " + firstHuman.getPassportId());
+        System.out.println(secondHuman.getFirstName() + " " + secondHuman.getLastName() + ", passport ID: " + secondHuman.getPassportId());
+        System.out.println(thirdHuman.getFirstName() + " " + thirdHuman.getLastName() + ", passport ID: " + thirdHuman.getPassportId());
     }
 }

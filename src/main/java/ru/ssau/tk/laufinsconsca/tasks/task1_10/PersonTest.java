@@ -1,7 +1,6 @@
 package ru.ssau.tk.laufinsconsca.tasks.task1_10;
 
 import org.testng.annotations.Test;
-import ru.ssau.tk.laufinsconsca.tasks.task1_10.Person;
 
 import static org.testng.Assert.*;
 
