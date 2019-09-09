@@ -51,7 +51,7 @@ class Person {
     }
 }
 
-class Task1_1{
+class Task1_11{
     public static void main(String[] args) {
         Person firstHuman = new Person();
         Person secondHuman = new Person();

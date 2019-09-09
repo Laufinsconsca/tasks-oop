@@ -4,6 +4,7 @@ import ru.ssau.tk.laufinsconsca.tasks.task_from_1_4_to_1_8.*;
 
 final public class Point {
     final public double x, y, z;
+
     public Point(double x, double y, double z) {
         this.x = x;
         this.y = y;
@@ -31,7 +32,6 @@ class Task1_3{
         System.out.println(p2);
         System.out.println(p3);
 
-        Points.sum(p1,p2,p3);
-        System.out.println(p3);
+        System.out.println(Points.sum(p1,p2));
     }
 }
