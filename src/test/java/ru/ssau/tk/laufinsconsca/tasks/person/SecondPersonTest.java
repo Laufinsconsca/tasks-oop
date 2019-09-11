@@ -1,4 +1,4 @@
-package test;
+package ru.ssau.tk.laufinsconsca.tasks.person;
 
 import org.testng.annotations.Test;
 import ru.ssau.tk.laufinsconsca.tasks.person.Person;

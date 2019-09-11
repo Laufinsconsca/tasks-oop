@@ -1,11 +1,11 @@
 package ru.ssau.tk.laufinsconsca.tasks.person;
 
-public class FirstTask {
-    private static Person firstHuman = new Person();
-    private static Person secondHuman = new Person();
-    private static Person thirdHuman = new Person();
+class FirstTask {
+    static Person firstHuman = new Person();
+    static Person secondHuman = new Person();
+    static Person thirdHuman = new Person();
 
-    public static void initializePerson() {
+    static void initializePerson() {
         firstHuman.setFirstName("James");
         firstHuman.setLastName("Hawkins");
         firstHuman.setPassportId(236232);
