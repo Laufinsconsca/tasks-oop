@@ -5,22 +5,22 @@ public class Person {
     private String lastName;
     private int passportId;
 
-    public Person(){
+    public Person() {
         this.firstName = null;
         this.lastName = null;
         this.passportId = 0;
     }
 
-    public Person(String firstName, String lastName){
+    public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public Person(int passportId){
+    public Person(int passportId) {
         this.passportId = passportId;
     }
 
-    public Person(String firstName, String lastName, int passportId){
+    public Person(String firstName, String lastName, int passportId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passportId = passportId;

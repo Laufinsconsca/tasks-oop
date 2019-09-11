@@ -4,7 +4,8 @@ import org.testng.annotations.Test;
 import ru.ssau.tk.laufinsconsca.tasks.points.Point;
 import ru.ssau.tk.laufinsconsca.tasks.points.Points;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class PointsTest {
 

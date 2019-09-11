@@ -1,9 +1,5 @@
 package ru.ssau.tk.laufinsconsca.tasks.points;
 
-import ru.ssau.tk.laufinsconsca.tasks.points.*;
-
-import java.lang.*;
-
 public class Points {
 
     private static double accuracy = 0.00005;

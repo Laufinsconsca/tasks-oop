@@ -50,6 +50,7 @@ public class SecondPersonTest {
         assertEquals(secondHuman.getPassportId(), 833526);
         assertEquals(thirdHuman.getPassportId(), 919424);
     }
+
     @Test(groups = {"unit1"})
     public void testFirstPersonConstructor() {
         Person nonExistentHuman = new Person();
