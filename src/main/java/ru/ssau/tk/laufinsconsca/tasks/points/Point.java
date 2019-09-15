@@ -1,6 +1,6 @@
 package ru.ssau.tk.laufinsconsca.tasks.points;
 
-final public class Point {
+public class Point {
     final double x, y, z;
 
     Point(double x, double y, double z) {

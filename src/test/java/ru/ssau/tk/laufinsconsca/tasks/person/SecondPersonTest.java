@@ -6,12 +6,12 @@ import ru.ssau.tk.laufinsconsca.tasks.person.Person;
 import static org.testng.Assert.assertEquals;
 
 public class SecondPersonTest {
-    @Test(groups = {"unit1"})
-    public void testFirstName() {
-        Person firstHuman = new Person();
-        Person secondHuman = new Person();
-        Person thirdHuman = new Person();
+    private Person firstHuman = new Person();
+    private Person secondHuman = new Person();
+    private Person thirdHuman = new Person();
 
+    @Test
+    public void testFirstName() {
         firstHuman.setFirstName("James");
         secondHuman.setFirstName("Kate");
         thirdHuman.setFirstName("David");
@@ -21,11 +21,8 @@ public class SecondPersonTest {
         assertEquals(thirdHuman.getFirstName(), "David");
     }
 
-    @Test(groups = {"unit1"})
+    @Test
     public void testLastName() {
-        Person firstHuman = new Person();
-        Person secondHuman = new Person();
-        Person thirdHuman = new Person();
 
         firstHuman.setLastName("Hawkins");
         secondHuman.setLastName("Wilson");
@@ -36,12 +33,8 @@ public class SecondPersonTest {
         assertEquals(thirdHuman.getLastName(), "Melton");
     }
 
-    @Test(groups = {"unit1"})
+    @Test
     public void testPassportId() {
-        Person firstHuman = new Person();
-        Person secondHuman = new Person();
-        Person thirdHuman = new Person();
-
         firstHuman.setPassportId(236232);
         secondHuman.setPassportId(833526);
         thirdHuman.setPassportId(919424);
@@ -51,27 +44,27 @@ public class SecondPersonTest {
         assertEquals(thirdHuman.getPassportId(), 919424);
     }
 
-    @Test(groups = {"unit1"})
+    @Test
     public void testFirstPersonConstructor() {
         Person nonExistentHuman = new Person();
         nonExistentHuman.setFirstName("Unknown");
         assertEquals(nonExistentHuman.getFirstName(), "Unknown");
     }
 
-    @Test(groups = {"unit1"})
+    @Test
     public void testSecondPersonConstructor() {
         Person gastarbeiter = new Person("Mike", "Scott");
         assertEquals(gastarbeiter.getFirstName(), "Mike");
         assertEquals(gastarbeiter.getLastName(), "Scott");
     }
 
-    @Test(groups = {"unit1"})
+    @Test
     public void testThirdPersonConstructor() {
         Person knownForGovernmentHuman = new Person(386466);
         assertEquals(knownForGovernmentHuman.getPassportId(), 386466);
     }
 
-    @Test(groups = {"unit1"})
+    @Test
     public void testFourthPersonConstructor() {
         Person knownHuman = new Person("Jerrie", "Nelson", 913295);
         assertEquals(knownHuman.getFirstName(), "Jerrie");
