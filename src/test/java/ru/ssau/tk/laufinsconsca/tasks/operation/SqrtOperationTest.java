@@ -2,7 +2,7 @@ package ru.ssau.tk.laufinsconsca.tasks.operation;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class SqrtOperationTest {
     private static final double accuracy = 0.00001;
@@ -18,7 +18,7 @@ public class SqrtOperationTest {
 
     @Test
     public void testApplyTriple() {
-        assertEquals(sqrt.applyTriple(5), Math.pow(5, 1./8), accuracy);
+        assertEquals(sqrt.applyTriple(5), Math.pow(5, 1. / 8), accuracy);
         assertEquals(sqrt.applyTriple(Double.NEGATIVE_INFINITY), Double.NaN, accuracy);
         assertEquals(sqrt.applyTriple(Double.POSITIVE_INFINITY), Double.POSITIVE_INFINITY, accuracy);
         assertEquals(sqrt.applyTriple(Double.NaN), Double.NaN, accuracy);

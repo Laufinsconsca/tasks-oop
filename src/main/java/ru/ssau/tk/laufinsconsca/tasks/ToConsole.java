@@ -1,44 +1,43 @@
 package ru.ssau.tk.laufinsconsca.tasks;
 
-public class ToConsole {
+class ToConsole {
 
-    public static void printType(byte type) {
+    static void printType(byte type) {
         System.out.println("byte");
     }
 
-    public static void printType(char type) {
+    static void printType(char type) {
         System.out.println("char");
     }
 
-    public static void printType(short type) {
+    static void printType(short type) {
         System.out.println("short");
     }
 
-    public static void printType(int type) {
+    static void printType(int type) {
         System.out.println("int");
     }
 
-    public static void printType(long type) {
+    static void printType(long type) {
         System.out.println("long");
     }
 
-    public static void printType(float type) {
+    static void printType(float type) {
         System.out.println("float");
     }
 
-    public static void printType(double type) {
+    static void printType(double type) {
         System.out.println("double");
     }
 
-    public static void printType(boolean type) {
+    static void printType(boolean type) {
         System.out.println("boolean");
     }
 
-    public static void printType(Object type) {
+    static void printType(Object type) {
         if (type == null) {
             System.out.println("null");
-        }
-        else {
+        } else {
             System.out.println(type.getClass().getSimpleName());
         }
     }

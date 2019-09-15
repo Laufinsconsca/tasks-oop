@@ -2,7 +2,7 @@ package ru.ssau.tk.laufinsconsca.tasks.operation;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class TangentOperationTest {
     private static final double accuracy = 0.00001;
