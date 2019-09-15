@@ -28,9 +28,9 @@ class Person {
     }
 
     /**
-     * @param firstName - имя
-     * @param lastName - фамилия
-     * @param gender - пол (MALE или FEMALE, строковое поле)
+     * @param firstName  - имя
+     * @param lastName   - фамилия
+     * @param gender     - пол (MALE или FEMALE, строковое поле)
      * @param passportId - номер паспорта
      */
 
@@ -42,9 +42,9 @@ class Person {
     }
 
     /**
-     * @param firstName - имя
-     * @param lastName - фамилия
-     * @param gender - пол (MALE или FEMALE, поле типа Gender)
+     * @param firstName  - имя
+     * @param lastName   - фамилия
+     * @param gender     - пол (MALE или FEMALE, поле типа Gender)
      * @param passportId - номер паспорта
      */
 
