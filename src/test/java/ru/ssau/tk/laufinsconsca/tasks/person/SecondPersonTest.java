@@ -71,4 +71,20 @@ public class SecondPersonTest {
         assertEquals(knownHuman.getLastName(), "Nelson");
         assertEquals(knownHuman.getPassportId(), 913295);
     }
+
+    @Test
+    public void testFifthPersonConstructor() {
+        Person knownHuman = new Person("John", "Reynolds", "MALE",824288);
+        assertEquals(knownHuman.getFirstName(), "John");
+        assertEquals(knownHuman.getLastName(), "Reynolds");
+        assertEquals(knownHuman.getPassportId(), 824288);
+    }
+
+    @Test
+    public void testSixthPersonConstructor() {
+        Person knownHuman = new Person("Emily", "Griffin", Gender.FEMALE,114029);
+        assertEquals(knownHuman.getFirstName(), "Emily");
+        assertEquals(knownHuman.getLastName(), "Griffin");
+        assertEquals(knownHuman.getPassportId(), 114029);
+    }
 }
