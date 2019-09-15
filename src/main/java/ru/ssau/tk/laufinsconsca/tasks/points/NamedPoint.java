@@ -1,9 +1,9 @@
 package ru.ssau.tk.laufinsconsca.tasks.points;
 
-class NamedPoint extends Point{
+class NamedPoint extends Point implements Resettable {
     private String name;
 
-    NamedPoint(){
+    NamedPoint() {
         super(0, 0, 0);
         this.name = "Origin";
     }
@@ -23,5 +23,10 @@ class NamedPoint extends Point{
 
     void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public void reset() {
+        name = "Absent";
     }
 }
