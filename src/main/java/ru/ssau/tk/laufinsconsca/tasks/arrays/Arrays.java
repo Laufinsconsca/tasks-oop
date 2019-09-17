@@ -1,6 +1,7 @@
 package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
 class Arrays {
+
     static double[] getRandomArray(int dim) {
         double[] array = new double[dim];
         for (int i = 0; i < dim; i++) {
@@ -17,4 +18,13 @@ class Arrays {
         }
         return array;
     }
+
+    static double[] getOddArray(int dim) {
+        double[] array = new double[dim];
+        for (int i = 0; i < dim; i++) {
+            array[i] = i*2 + 1;
+        }
+        return array;
+    }
+
 }

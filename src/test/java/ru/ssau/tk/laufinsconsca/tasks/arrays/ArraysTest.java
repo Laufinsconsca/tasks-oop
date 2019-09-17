@@ -8,8 +8,9 @@ public class ArraysTest {
 
     @Test
     public void testGetRandomArray() {
-        double[] array = Arrays.getRandomArray(10);
-        assertEquals(array.length, 10, 0.0001);
+        int dim = 10;
+        double[] array = Arrays.getRandomArray(dim);
+        assertEquals(array.length, dim, 0.0001);
     }
 
     @Test
@@ -21,5 +22,14 @@ public class ArraysTest {
             assertEquals(array[i], 1, 0.0001);
         }
         assertEquals(array[dim - 1], 2, 0.0001);
+    }
+
+    @Test
+    public void testGetOddArray() {
+        int dim = 10;
+        double[] array = Arrays.getOddArray(dim);
+        for (int i = 0; i < dim; i++) {
+            assertEquals(array[i], i*2 + 1, 0.0001);
+        }
     }
 }
