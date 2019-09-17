@@ -8,4 +8,13 @@ class Arrays {
         }
         return array;
     }
+    static double[] getTwoOneTwoArray(int dim) {
+        double[] array = new double[dim];
+        array[0] = 2;
+        array[dim - 1] = 2;
+        for (int i = 1; i < dim - 1; i++) {
+            array[i] = 1;
+        }
+        return array;
+    }
 }
