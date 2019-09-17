@@ -41,4 +41,11 @@ public class ArraysTest {
             assertEquals(array[i], i*2 + 2, 0.0001);
         }
     }
+
+    @Test
+    public void testGetFibonacciArray() {
+        int dim = 10;
+        double[] array = Arrays.getFibonacciArray(dim);
+        assertEquals(array[dim - 1], 55, 0.0001);
+    }
 }
