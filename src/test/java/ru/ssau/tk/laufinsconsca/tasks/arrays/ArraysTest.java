@@ -55,4 +55,43 @@ public class ArraysTest {
         double[] array = Arrays.getSquareArray(dim);
         assertEquals(array[dim - 1], 81, 0.0001);
     }
+
+    @Test
+    public void testGetSquareEquationArray() {
+        double[] firstSolutionOfFullSquareEquation = Arrays.getSquareEquationArray(3,-11,10);
+        double accuracy = 0.00001;
+        if (firstSolutionOfFullSquareEquation != null) {
+            assertEquals(firstSolutionOfFullSquareEquation[0], 2, accuracy);
+            assertEquals(firstSolutionOfFullSquareEquation[1], 5./3, accuracy);
+        }
+        double[] solutionOfLinearEquation = Arrays.getSquareEquationArray(0,3,-9);
+        if (firstSolutionOfFullSquareEquation != null) {
+            assertEquals(solutionOfLinearEquation[0], 3, accuracy);
+        }
+        double[] secondSolutionOfFullSquareEquation = Arrays.getSquareEquationArray(2,-8,8);
+        if (secondSolutionOfFullSquareEquation != null) {
+            assertEquals(secondSolutionOfFullSquareEquation[0], 2, accuracy);
+        }
+
+        try {
+            double[] solutionDoesNotExist = Arrays.getSquareEquationArray(0, 0, 5);
+        }
+        catch (NullPointerException e){
+            assertEquals(e.getMessage(), "The solution doesn't exist");
+        }
+
+        try {
+            double[] solutionIsAnyNumber = Arrays.getSquareEquationArray(0, 0, 0);
+        }
+        catch (NullPointerException e){
+            assertEquals(e.getMessage(), "The solution belongs to the domain of all complex numbers");
+        }
+
+        try {
+            double[] solutionBelongsDomainOfComplexNumbers = Arrays.getSquareEquationArray(3, 7, 10);
+        }
+        catch (NullPointerException e){
+            assertEquals(e.getMessage(), "The solution doesn't belong to the domain of real numbers");
+        }
+    }
 }
