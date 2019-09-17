@@ -32,4 +32,13 @@ public class ArraysTest {
             assertEquals(array[i], i*2 + 1, 0.0001);
         }
     }
+
+    @Test
+    public void testGetEvenArrayInDescendingOrder() {
+        int dim = 10;
+        double[] array = Arrays.getEvenArrayInDescendingOrder(dim);
+        for (int i = dim - 1; i >= 0; i--) {
+            assertEquals(array[i], i*2 + 2, 0.0001);
+        }
+    }
 }

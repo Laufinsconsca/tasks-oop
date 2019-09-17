@@ -27,4 +27,12 @@ class Arrays {
         return array;
     }
 
+    static double[] getEvenArrayInDescendingOrder(int dim) {
+        double[] array = new double[dim];
+        for (int i = dim - 1; i >= 0; i--) {
+            array[i] = i*2 + 2;
+        }
+        return array;
+    }
+
 }
