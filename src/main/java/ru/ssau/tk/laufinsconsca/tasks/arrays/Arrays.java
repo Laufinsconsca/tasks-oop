@@ -44,4 +44,12 @@ class Arrays {
         }
         return array;
     }
+
+    static double[] getSquareArray(int dim) {
+        double[] array = new double[dim];
+        for (int i = 0; i < dim; i++) {
+            array[i] = i*i;
+        }
+        return array;
+    }
 }

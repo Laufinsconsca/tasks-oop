@@ -48,4 +48,11 @@ public class ArraysTest {
         double[] array = Arrays.getFibonacciArray(dim);
         assertEquals(array[dim - 1], 55, 0.0001);
     }
+
+    @Test
+    public void testGetSquareArray() {
+        int dim = 10;
+        double[] array = Arrays.getSquareArray(dim);
+        assertEquals(array[dim - 1], 81, 0.0001);
+    }
 }
