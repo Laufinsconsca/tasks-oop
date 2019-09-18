@@ -2,8 +2,6 @@ package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
 import org.jetbrains.annotations.Nullable;
 
-import java.sql.Wrapper;
-
 class Arrays {
 
     static double[] getRandomArray(int dim) {
@@ -84,5 +82,27 @@ class Arrays {
                 throw new NullPointerException("The solution doesn't belong to the domain of real numbers");
             }
         }
+    }
+
+    static double[] getNaturalNumbersNotDivisibleByThree(int dim) {
+        double[] array = new double[dim];
+        int j = 1;
+        for(int i = 0; i < dim; i++) {
+            if (j%3 == 0) {
+                j++;
+            }
+            array[i] = j;
+            j++;
+        }
+        return array;
+    }
+
+    static double[] getArithmeticProgression(double beginElement, double step, int dim) {
+        double[] array = new double[dim];
+        array[0] = beginElement;
+        for(int i = 1; i < dim; i++) {
+            array[i] = array[i-1] + step;
+        }
+        return array;
     }
 }
