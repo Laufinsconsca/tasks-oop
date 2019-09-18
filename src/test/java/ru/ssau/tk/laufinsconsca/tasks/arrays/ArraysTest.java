@@ -119,45 +119,19 @@ public class ArraysTest {
 
     @Test
     public void testGetDividersOfNumbers() {
-        double[] firstArray = Arrays.getDividersOfNumbers(6);
-        assertEquals(firstArray[0], 1, accuracy);
-        assertEquals(firstArray[1], 2, accuracy);
-        assertEquals(firstArray[2], 3, accuracy);
-        assertEquals(firstArray[3], 6, accuracy);
-        assertEquals(firstArray.length, 4, accuracy);
-
-        double[] secondArray = Arrays.getDividersOfNumbers(16);
-        assertEquals(secondArray[0], 1, accuracy);
-        assertEquals(secondArray[1], 2, accuracy);
-        assertEquals(secondArray[2], 4, accuracy);
-        assertEquals(secondArray[3], 8, accuracy);
-        assertEquals(secondArray[4], 16, accuracy);
-        assertEquals(secondArray.length, 5, accuracy);
-
-        double[] thirdArray = Arrays.getDividersOfNumbers(125);
-        assertEquals(thirdArray[0], 1, accuracy);
-        assertEquals(thirdArray[1], 5, accuracy);
-        assertEquals(thirdArray[2], 25, accuracy);
-        assertEquals(thirdArray[3], 125, accuracy);
-        assertEquals(thirdArray.length, 4, accuracy);
-
-        double[] fourthArray = Arrays.getDividersOfNumbers(-256);
-        assertEquals(fourthArray[0], -1, accuracy);
-        assertEquals(fourthArray[1], -2, accuracy);
-        assertEquals(fourthArray[2], -4, accuracy);
-        assertEquals(fourthArray[3], -8, accuracy);
-        assertEquals(fourthArray[4], -16, accuracy);
-        assertEquals(fourthArray[5], -32, accuracy);
-        assertEquals(fourthArray[6], -64, accuracy);
-        assertEquals(fourthArray[7], -128, accuracy);
-        assertEquals(fourthArray[8], -256, accuracy);
-        assertEquals(fourthArray.length, 9, accuracy);
+        double[] fourthArray = Arrays.getDividersOfNumbers(256);
+        for (int i = 0; i < fourthArray.length; i++) {
+            if (i < 9) {
+                assertEquals(fourthArray[i], -Math.pow(2, 8 - i), accuracy);
+            } else {
+                assertEquals(fourthArray[i], Math.pow(2, i - 9), accuracy);
+            }
+        }
 
         try {
             Arrays.getDividersOfNumbers(0);
-        }
-        catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "The set of all natural numbers are dividers");
+        } catch (NullPointerException e) {
+            assertEquals(e.getMessage(), "The set of all natural numbers are dividers excepts zero");
         }
     }
 }
