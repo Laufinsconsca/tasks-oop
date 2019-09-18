@@ -116,4 +116,29 @@ class Arrays {
         }
         return array;
     }
+
+    static double[] getDividersOfNumbers(int number) throws NullPointerException{
+        if (number == 0) {
+            throw new NullPointerException("The set of all natural numbers are dividers");
+        }
+        int sign = (number>0)?1:-1;
+        number = Math.abs(number);
+        int count = 0;
+        for(int i = 1; i < Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                count++;
+            }
+        }
+        double[] array = new double[count*2 + (Math.sqrt(number)==(int)Math.sqrt(number)?1:0)];
+        int j = 0;
+        for(int i = 0; i < (int)Math.sqrt(number); i++) {
+            if (number % (i+1) == 0) {
+                array[j] = sign*(i+1);
+                array[array.length - j - 1] = sign*number/(i+1);
+                j++;
+            }
+        }
+        return array;
+    }
+
 }
