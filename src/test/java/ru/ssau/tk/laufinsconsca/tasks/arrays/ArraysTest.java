@@ -119,7 +119,7 @@ public class ArraysTest {
 
     @Test
     public void testGetDividersOfNumbers() {
-        double[] fourthArray = Arrays.getDividersOfNumbers(256);
+        int[] fourthArray = Arrays.getDividersOfNumbers(256);
         for (int i = 0; i < fourthArray.length; i++) {
             if (i < 9) {
                 assertEquals(fourthArray[i], -Math.pow(2, 8 - i), accuracy);
@@ -133,5 +133,21 @@ public class ArraysTest {
         } catch (NullPointerException e) {
             assertEquals(e.getMessage(), "The set of all natural numbers are dividers excepts zero");
         }
+    }
+
+    @Test
+    public void testGetPrimeNumbersUpTo() throws NullPointerException{
+        int[] array = Arrays.getPrimeNumbersUpTo(11);
+        double accuracy = 0.0001;
+        assertEquals(array[0], 1, accuracy);
+        assertEquals(array[1], 2, accuracy);
+        assertEquals(array[2], 3, accuracy);
+        assertEquals(array[3], 5, accuracy);
+        assertEquals(array[4], 7, accuracy);
+        assertEquals(array[5], 11, accuracy);
+        try {
+            Arrays.getPrimeNumbersUpTo(0);
+        }
+        catch (NullPointerException e){}
     }
 }

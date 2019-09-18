@@ -1,8 +1,9 @@
 package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 class Arrays {
 
@@ -117,7 +118,7 @@ class Arrays {
         return array;
     }
 
-    static double[] getDividersOfNumbers(int number) throws NullPointerException{
+    static int[] getDividersOfNumbers(int number) throws NullPointerException{
         if (number == 0) {
             throw new NullPointerException("The set of all natural numbers are dividers excepts zero");
         }
@@ -128,7 +129,7 @@ class Arrays {
                 count++;
             }
         }
-        double[] array = new double[(count*2 + (Math.sqrt(number)==(int)Math.sqrt(number)?1:0))*2];
+        int[] array = new int[(count*2 + (Math.sqrt(number)==(int)Math.sqrt(number)?1:0))*2];
         int j = array.length/2;
         for(int i = 0; i < (int)Math.sqrt(number); i++) {
             if (number % (i+1) == 0) {
@@ -138,6 +139,25 @@ class Arrays {
                 array[3*array.length/2 - j - 1] = number/(i+1);
                 j++;
             }
+        }
+        return array;
+    }
+
+    static int[] getPrimeNumbersUpTo(int number){
+        if (number == 0) {
+            return null;
+        }
+        LinkedList<Integer> temp = new LinkedList<>();
+        temp.add(1);
+        for (int i = 2; i <= number; i++) {
+            if (Arrays.getDividersOfNumbers(i).length == 4) {
+                temp.add(i);
+            }
+        }
+        int[] array = new int[temp.size()];
+        ListIterator<Integer> iterator = temp.listIterator();
+        for (int i = 0; iterator.hasNext(); i++){
+            array[i] = iterator.next();
         }
         return array;
     }
