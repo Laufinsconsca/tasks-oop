@@ -111,4 +111,10 @@ public class ArraysTest {
         assertEquals(array[10], 50, accuracy);
     }
 
+    @Test
+    public void testGeometricProgression() {
+        double[] array = Arrays.getGeometricProgression(2, 2, 11);
+        assertEquals(array[10], 2048, accuracy);
+    }
+
 }

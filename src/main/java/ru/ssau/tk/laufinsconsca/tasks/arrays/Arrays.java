@@ -1,5 +1,7 @@
 package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 class Arrays {
@@ -102,6 +104,15 @@ class Arrays {
         array[0] = beginElement;
         for(int i = 1; i < dim; i++) {
             array[i] = array[i-1] + step;
+        }
+        return array;
+    }
+
+    static double[] getGeometricProgression(double beginElement, double step, int dim) {
+        double[] array = new double[dim];
+        array[0] = beginElement;
+        for(int i = 1; i < dim; i++) {
+            array[i] = array[i-1]*step;
         }
         return array;
     }
