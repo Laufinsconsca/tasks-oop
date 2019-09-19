@@ -2,7 +2,7 @@ package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class ArraysTest {
 
@@ -148,6 +148,7 @@ public class ArraysTest {
         try {
             Arrays.getPrimeNumbersUpTo(0);
         } catch (NullPointerException e) {
+            assertEquals(e.getMessage(), "Zero is not prime or compound number");
         }
     }
 
@@ -170,6 +171,7 @@ public class ArraysTest {
         try {
             Arrays.getSymmetricArray(0);
         } catch (NullPointerException e) {
+            assertEquals(e.getMessage(), "Uncorrect size");
         }
     }
 
@@ -186,6 +188,26 @@ public class ArraysTest {
         Arrays.negate(array);
         assertEquals((array[0]).doubleValue(), 2, 0.00001);
         assertEquals((array[3]).doubleValue(), -1, 0.00001);
+    }
+
+    @Test
+    public void doesArrayContainTheValue() {
+        Number[] array = new Number[5];
+        for (int i = 0; i < array.length; i++) {
+            if (i % 2 == 0) {
+                array[i] = i - 2;
+            } else {
+                array[i] = i - 2.5;
+            }
+        }
+        assertTrue(Arrays.doesArrayContainTheValue(array,-2));
+        assertTrue(Arrays.doesArrayContainTheValue(array,0.5));
+        try {
+            Arrays.doesArrayContainTheValue(null,0);
+        }
+        catch (NullPointerException e) {
+            assertEquals(e.getMessage(), "The empty array was passed");
+        }
     }
 
 }

@@ -141,7 +141,7 @@ class Arrays {
 
     static int[] getPrimeNumbersUpTo(int number) {
         if (number == 0) {
-            return null;
+            throw new NullPointerException("Zero is not prime or compound number");
         }
         LinkedList<Integer> temp = new LinkedList<>();
         temp.add(1);
@@ -159,8 +159,8 @@ class Arrays {
     }
 
     static int[] getSymmetricArray(int size) {
-        if (size == 0) {
-            return null;
+        if (size <= 0) {
+            throw new NullPointerException("Uncorrect size");
         }
         int[] array = new int[size];
         for (int i = 0; i < Math.ceil((double) size / 2); i++) {
@@ -179,6 +179,21 @@ class Arrays {
                 array[i] = -((Integer) array[i]);
             }
         }
+    }
+
+    static boolean doesArrayContainTheValue(Number[] array, double value) throws NullPointerException{
+        if (array == null) {
+            throw new NullPointerException("The empty array was passed");
+        }
+        for (Number n : array) {
+            if (value == n.doubleValue() && n instanceof Double) {
+                return true;
+            }
+            if (value == n.doubleValue() && n instanceof Integer) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
