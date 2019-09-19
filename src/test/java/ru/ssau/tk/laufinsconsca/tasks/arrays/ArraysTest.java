@@ -136,7 +136,7 @@ public class ArraysTest {
     }
 
     @Test
-    public void testGetPrimeNumbersUpTo() throws NullPointerException{
+    public void testGetPrimeNumbersUpTo() throws NullPointerException {
         int[] array = Arrays.getPrimeNumbersUpTo(11);
         double accuracy = 0.0001;
         assertEquals(array[0], 1, accuracy);
@@ -147,8 +147,8 @@ public class ArraysTest {
         assertEquals(array[5], 11, accuracy);
         try {
             Arrays.getPrimeNumbersUpTo(0);
+        } catch (NullPointerException e) {
         }
-        catch (NullPointerException e){}
     }
 
 
@@ -169,7 +169,23 @@ public class ArraysTest {
         assertEquals(secondArray[5], 5, accuracy);
         try {
             Arrays.getSymmetricArray(0);
+        } catch (NullPointerException e) {
         }
-        catch (NullPointerException e){}
     }
+
+    @Test
+    public void testNegate() {
+        Number[] array = new Number[5];
+        for (int i = 0; i < array.length; i++) {
+            if (i % 2 == 0) {
+                array[i] = i - 2;
+            } else {
+                array[i] = i - 2.;
+            }
+        }
+        Arrays.negate(array);
+        assertEquals((array[0]).doubleValue(), 2, 0.00001);
+        assertEquals((array[3]).doubleValue(), -1, 0.00001);
+    }
+
 }
