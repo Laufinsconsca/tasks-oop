@@ -229,4 +229,11 @@ public class ArraysTest {
         }
         assertEquals(Arrays.getCountOfEvenNumbers(array), 6);
     }
+
+    @Test
+    public void testGetMaxElement() {
+        int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
+        assertEquals(Arrays.getMaxElement(array), 11, 0.00001);
+        assertNull(Arrays.getMaxElement(new int[]{}));
+    }
 }

@@ -216,4 +216,17 @@ class Arrays {
         }
         return count;
     }
+
+    static Integer getMaxElement(int[] array) {
+        if (array.length == 0) {
+            return null;
+        }
+        Integer max = 0;
+        for (Integer n : array) {
+            if (n > max) {
+                max = n;
+            }
+        }
+        return max;
+    }
 }
