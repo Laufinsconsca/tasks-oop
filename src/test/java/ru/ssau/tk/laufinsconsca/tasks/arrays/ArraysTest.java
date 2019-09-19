@@ -171,7 +171,7 @@ public class ArraysTest {
         try {
             Arrays.getSymmetricArray(0);
         } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "Uncorrect size");
+            assertEquals(e.getMessage(), "Incorrect size");
         }
     }
 
@@ -200,14 +200,24 @@ public class ArraysTest {
                 array[i] = i - 2.5;
             }
         }
-        assertTrue(Arrays.doesArrayContainTheValue(array,-2));
-        assertTrue(Arrays.doesArrayContainTheValue(array,0.5));
+        assertTrue(Arrays.doesArrayContainTheValue(array, -2));
+        assertTrue(Arrays.doesArrayContainTheValue(array, 0.5));
         try {
-            Arrays.doesArrayContainTheValue(null,0);
-        }
-        catch (NullPointerException e) {
+            Arrays.doesArrayContainTheValue(null, 0);
+        } catch (NullPointerException e) {
             assertEquals(e.getMessage(), "The empty array was passed");
         }
     }
 
+    @Test
+    public void testDoesArrayContainNull() {
+        Integer[] array = new Integer[5];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i;
+        }
+        array[2] = null;
+        assertTrue(Arrays.doesArrayContainNull(array));
+        array[2] = 4;
+        assertFalse(Arrays.doesArrayContainNull(array));
+    }
 }

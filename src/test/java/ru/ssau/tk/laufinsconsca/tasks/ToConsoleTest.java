@@ -20,6 +20,7 @@ public class ToConsoleTest {
         ToConsole.printType(new Point(0, 0, 0));
         ToConsole.printType(Integer.valueOf(5));
         ToConsole.printType("a");
+        ToConsole.printType(null);
     }
 
 }

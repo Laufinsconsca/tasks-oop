@@ -160,7 +160,7 @@ class Arrays {
 
     static int[] getSymmetricArray(int size) {
         if (size <= 0) {
-            throw new NullPointerException("Uncorrect size");
+            throw new NullPointerException("Incorrect size");
         }
         int[] array = new int[size];
         for (int i = 0; i < Math.ceil((double) size / 2); i++) {
@@ -181,7 +181,7 @@ class Arrays {
         }
     }
 
-    static boolean doesArrayContainTheValue(Number[] array, double value) throws NullPointerException{
+    static boolean doesArrayContainTheValue(Number[] array, double value) throws NullPointerException {
         if (array == null) {
             throw new NullPointerException("The empty array was passed");
         }
@@ -196,4 +196,14 @@ class Arrays {
         return false;
     }
 
+    static boolean doesArrayContainNull(Integer[] array) {
+        try {
+            for (Integer n : array) {
+                n += 0;
+            }
+        } catch (NullPointerException e) {
+            return true;
+        }
+        return false;
+    }
 }
