@@ -150,4 +150,26 @@ public class ArraysTest {
         }
         catch (NullPointerException e){}
     }
+
+
+    @Test
+    public void testGetSymmetricArray() {
+        int[] firstArray = Arrays.getSymmetricArray(11);
+        double accuracy = 0.0001;
+        assertEquals(firstArray[0], 1, accuracy);
+        assertEquals(firstArray[10], 1, accuracy);
+        assertEquals(firstArray[1], 2, accuracy);
+        assertEquals(firstArray[9], 2, accuracy);
+        assertEquals(firstArray[5], 6, accuracy);
+        int[] secondArray = Arrays.getSymmetricArray(10);
+        assertEquals(secondArray[0], 1, accuracy);
+        assertEquals(secondArray[9], 1, accuracy);
+        assertEquals(secondArray[1], 2, accuracy);
+        assertEquals(secondArray[8], 2, accuracy);
+        assertEquals(secondArray[5], 5, accuracy);
+        try {
+            Arrays.getSymmetricArray(0);
+        }
+        catch (NullPointerException e){}
+    }
 }
