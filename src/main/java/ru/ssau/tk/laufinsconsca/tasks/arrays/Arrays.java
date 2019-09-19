@@ -206,4 +206,14 @@ class Arrays {
         }
         return false;
     }
+
+    static int getCountOfEvenNumbers(int[] array) {
+        int count = 0;
+        for (int i : array) {
+            if (i % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

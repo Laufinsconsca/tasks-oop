@@ -220,4 +220,13 @@ public class ArraysTest {
         array[2] = 4;
         assertFalse(Arrays.doesArrayContainNull(array));
     }
+
+    @Test
+    public void testGetCountOfEvenNumbers() {
+        int[] array = new int[11];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (i + 10) * (i + 10);
+        }
+        assertEquals(Arrays.getCountOfEvenNumbers(array), 6);
+    }
 }
