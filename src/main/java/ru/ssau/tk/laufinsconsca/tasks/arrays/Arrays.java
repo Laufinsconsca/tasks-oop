@@ -7,7 +7,8 @@ import java.util.ListIterator;
 
 class Arrays {
 
-    private Arrays(){}
+    private Arrays() {
+    }
 
     static double[] getRandomArray(int dim) {
         double[] array = new double[dim];
@@ -232,7 +233,7 @@ class Arrays {
         return max;
     }
 
-    static int getSumOfNumbersWithEvenIndices(int[] array){
+    static int getSumOfNumbersWithEvenIndices(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             if (i % 2 == 0) {
@@ -240,5 +241,24 @@ class Arrays {
             }
         }
         return sum;
+    }
+
+    static boolean isCountOfNumbersDivisibleByTheFirstElementOfTheArrayIsGreaterThanTheLast(int[] array) {
+        int countElementsDivisibleByTheFirstElement = 0;
+        int countElementsDivisibleByTheLastElement = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % array[0] == 0) {
+                countElementsDivisibleByTheFirstElement++;
+            }
+            if (array[i] % array[array.length - 1] == 0) {
+                countElementsDivisibleByTheLastElement++;
+            }
+        }
+        if (countElementsDivisibleByTheFirstElement > countElementsDivisibleByTheLastElement) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

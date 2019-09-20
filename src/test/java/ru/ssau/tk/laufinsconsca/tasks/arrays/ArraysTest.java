@@ -242,4 +242,10 @@ public class ArraysTest {
         int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
         assertEquals(Arrays.getSumOfNumbersWithEvenIndices(array), 29, 0.00001);
     }
+
+    @Test
+    public void testIsCountOfNumbersDivisibleByTheFirstElementOfTheArrayIsGreaterThanTheLast() {
+        int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
+        assertTrue(Arrays.isCountOfNumbersDivisibleByTheFirstElementOfTheArrayIsGreaterThanTheLast(array));
+    }
 }
