@@ -236,4 +236,10 @@ public class ArraysTest {
         assertEquals(Arrays.getMaxElement(array), 11, 0.00001);
         assertNull(Arrays.getMaxElement(new int[]{}));
     }
+
+    @Test
+    public void testGetSumOfNumbersWithEvenIndices() {
+        int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
+        assertEquals(Arrays.getSumOfNumbersWithEvenIndices(array), 29, 0.00001);
+    }
 }

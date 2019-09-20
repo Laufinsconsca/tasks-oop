@@ -7,6 +7,8 @@ import java.util.ListIterator;
 
 class Arrays {
 
+    private Arrays(){}
+
     static double[] getRandomArray(int dim) {
         double[] array = new double[dim];
         for (int i = 0; i < dim; i++) {
@@ -228,5 +230,15 @@ class Arrays {
             }
         }
         return max;
+    }
+
+    static int getSumOfNumbersWithEvenIndices(int[] array){
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (i % 2 == 0) {
+                sum += array[i];
+            }
+        }
+        return sum;
     }
 }
