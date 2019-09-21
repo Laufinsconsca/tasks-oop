@@ -296,22 +296,22 @@ class Arrays {
         }
         long max = (long) Arrays.getBoundaryElement(array, true);
         long min = (long) Arrays.getBoundaryElement(array, false);
-        Number[][] numCounts = new Number[(int) (max - min + 1)][2];
+        int[][] numCounts = new int[(int) (max - min + 1)][2];
         for (int i = 0; i < numCounts.length; i++) {
             numCounts[i][0] = 0;
             numCounts[i][1] = -1;
         }
         for (int i = 0; i < array.length; i++) {
-            numCounts[(int) (array[i].longValue() - min)][0] = numCounts[(int) (array[i].longValue() - min)][0].longValue() + 1;
-            if (numCounts[(int) (array[i].longValue() - min)][1].longValue() == -1) {
+            numCounts[(int) (array[i].longValue() - min)][0] = numCounts[(int) (array[i].longValue() - min)][0] + 1;
+            if (numCounts[(int) (array[i].longValue() - min)][1] == -1) {
                 numCounts[(int) (array[i].longValue() - min)][1] = i;
             }
         }
         long mostFrequentElement = min;
         long currentMostFrequentElement = Long.MIN_VALUE;
         for (int i = 0; i < numCounts.length; i++) {
-            if (numCounts[i][0].longValue() > currentMostFrequentElement || (numCounts[i][0].longValue() == currentMostFrequentElement && numCounts[(int) (mostFrequentElement - min)][1].longValue() > numCounts[i][1].longValue())) {
-                currentMostFrequentElement = numCounts[i][0].longValue();
+            if (numCounts[i][0] > currentMostFrequentElement || (numCounts[i][0] == currentMostFrequentElement && numCounts[(int) (mostFrequentElement - min)][1] > numCounts[i][1])) {
+                currentMostFrequentElement = numCounts[i][0];
                 mostFrequentElement = i + min;
             }
         }
