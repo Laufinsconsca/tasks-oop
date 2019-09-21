@@ -233,8 +233,15 @@ public class ArraysTest {
     @Test
     public void testGetMaxElement() {
         int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
-        assertEquals(Arrays.getMaxElement(array), 11, 0.00001);
-        assertNull(Arrays.getMaxElement(new int[]{}));
+        assertEquals(Arrays.getBoundaryElement(array, true), 11, 0.00001);
+        assertNull(Arrays.getBoundaryElement(new int[]{}, true));
+    }
+
+    @Test
+    public void testGetMinElement() {
+        int[] array = new int[]{10, 4, 8, 2, 9, 4, 5, 11, 6};
+        assertEquals(Arrays.getBoundaryElement(array, false), 2, 0.00001);
+        assertNull(Arrays.getBoundaryElement(new int[]{}, false));
     }
 
     @Test
@@ -247,5 +254,15 @@ public class ArraysTest {
     public void testIsCountOfNumbersDivisibleByTheFirstElementOfTheArrayIsGreaterThanTheLast() {
         int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
         assertTrue(Arrays.isCountOfNumbersDivisibleByTheFirstElementOfTheArrayIsGreaterThanTheLast(array));
+    }
+
+    @Test
+    public void testGetMostCommonElement() {
+        int[] array = new int[]{0, -3, 2, 2, -3, 0, 0, 0, 2, -3, 0, -3, 3, 3, 0, -3, 2, -3, 2, 1};
+        assertEquals((int) Arrays.getMostCommonElement(array), 0);
+        array[0] = array[0] - array[1];
+        array[1] = array[0] + array[1];
+        array[0] = -array[0] + array[1];
+        assertEquals((int) Arrays.getMostCommonElement(array), -3);
     }
 }

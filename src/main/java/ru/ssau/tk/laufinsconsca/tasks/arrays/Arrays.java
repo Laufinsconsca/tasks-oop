@@ -220,17 +220,17 @@ class Arrays {
         return count;
     }
 
-    static Integer getMaxElement(int[] array) {
+    static Integer getBoundaryElement(int[] array, boolean isMaxElement) {
         if (array.length == 0) {
             return null;
         }
-        Integer max = 0;
+        Integer boundElement = (isMaxElement) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
         for (Integer n : array) {
-            if (n > max) {
-                max = n;
+            if ((isMaxElement) ? n > boundElement : n < boundElement) {
+                boundElement = n;
             }
         }
-        return max;
+        return boundElement;
     }
 
     static int getSumOfNumbersWithEvenIndices(int[] array) {
@@ -246,19 +246,43 @@ class Arrays {
     static boolean isCountOfNumbersDivisibleByTheFirstElementOfTheArrayIsGreaterThanTheLast(int[] array) {
         int countElementsDivisibleByTheFirstElement = 0;
         int countElementsDivisibleByTheLastElement = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % array[0] == 0) {
+        for (int n : array) {
+            if (n % array[0] == 0) {
                 countElementsDivisibleByTheFirstElement++;
             }
-            if (array[i] % array[array.length - 1] == 0) {
+            if (n % array[array.length - 1] == 0) {
                 countElementsDivisibleByTheLastElement++;
             }
         }
-        if (countElementsDivisibleByTheFirstElement > countElementsDivisibleByTheLastElement) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return countElementsDivisibleByTheFirstElement > countElementsDivisibleByTheLastElement;
     }
+
+    static Integer getMostCommonElement(int[] array) {
+        if (array.length == 0) {
+            return null;
+        }
+        int max = Arrays.getBoundaryElement(array, true);
+        int min = Arrays.getBoundaryElement(array, false);
+        int[][] numCounts = new int[max - min + 1][2];
+        for (int i = 0; i < numCounts.length; i++) {
+            numCounts[i][0] = 0;
+            numCounts[i][1] = -1;
+        }
+        for (int i = 0; i < array.length; i++) {
+            numCounts[array[i] - min][0]++;
+            if (numCounts[array[i] - min][1] == -1) {
+                numCounts[array[i] - min][1] = i;
+            }
+        }
+        int mostCommonElement = min;
+        int temp = Integer.MIN_VALUE;
+        for (int i = 0; i < numCounts.length; i++) {
+            if (numCounts[i][0] > temp || (numCounts[i][0] == temp && numCounts[mostCommonElement - min][1] > numCounts[i][1])) {
+                temp = numCounts[i][0];
+                mostCommonElement = i + min;
+            }
+        }
+        return mostCommonElement;
+    }
+
 }
