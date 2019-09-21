@@ -326,4 +326,13 @@ public class ArraysTest {
         Arrays.not(array);
         assertEquals(array, new Integer[]{10, 4, 8, 2, 9, 4, 5, 11, 6});
     }
+
+    @Test
+    public void testTestNot() {
+        int[] array = new int[]{10, 4, 8, 2, 9, 4, 5, 11, 6};
+        Arrays.not(array);
+        assertEquals(array, new int[]{-11, -5, -9, -3, -10, -5, -6, -12, -7});
+        Arrays.not(array);
+        assertEquals(array, new int[]{10, 4, 8, 2, 9, 4, 5, 11, 6});
+    }
 }

@@ -378,4 +378,11 @@ class Arrays {
         }
     }
 
+    static int[] not(final int[] array) {
+        int[] result = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = ~array[i];
+        }
+        return array;
+    }
 }
