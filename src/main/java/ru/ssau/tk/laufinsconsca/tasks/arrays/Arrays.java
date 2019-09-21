@@ -220,19 +220,6 @@ class Arrays {
         return count;
     }
 
-    static Integer getBoundaryElement(int[] array, boolean isMaxElement) {
-        if (array.length == 0) {
-            return null;
-        }
-        Integer boundElement = (isMaxElement) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-        for (Integer n : array) {
-            if ((isMaxElement) ? n > boundElement : n < boundElement) {
-                boundElement = n;
-            }
-        }
-        return boundElement;
-    }
-
     static int getSumOfNumbersWithEvenIndices(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -257,32 +244,123 @@ class Arrays {
         return countElementsDivisibleByTheFirstElement > countElementsDivisibleByTheLastElement;
     }
 
-    static Integer getMostCommonElement(int[] array) {
+    static Number getBoundaryElement(Number[] array, boolean isMaxElement) {
         if (array.length == 0) {
             return null;
         }
-        int max = Arrays.getBoundaryElement(array, true);
-        int min = Arrays.getBoundaryElement(array, false);
-        int[][] numCounts = new int[max - min + 1][2];
+        Number boundaryElement = 0;
+        if (array instanceof Integer[]) {
+            boundaryElement = (isMaxElement) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        }
+        if (array instanceof Long[]) {
+            boundaryElement = (isMaxElement) ? Long.MIN_VALUE : Long.MAX_VALUE;
+        }
+        if (array instanceof Double[]) {
+            boundaryElement = (isMaxElement) ? Double.MIN_VALUE : Double.MAX_VALUE;
+        }
+        if (array instanceof Float[]) {
+            boundaryElement = (isMaxElement) ? Float.MIN_VALUE : Float.MAX_VALUE;
+        }
+        for (Number n : array) {
+            if ((isMaxElement) ? n.doubleValue() > boundaryElement.doubleValue() : n.doubleValue() < boundaryElement.doubleValue()) {
+                boundaryElement = n.doubleValue();
+            }
+        }
+        if (array instanceof Integer[]) {
+            return boundaryElement.intValue();
+        } else if (array instanceof Long[]) {
+            return boundaryElement.longValue();
+        } else if (array instanceof Double[]) {
+            return boundaryElement.doubleValue();
+        } else if (array instanceof Float[]) {
+            return boundaryElement.floatValue();
+        } else {
+            return null;
+        }
+    }
+
+    static Number getMostFrequentElement(Number[] array) {
+        if (array instanceof Double[] || array instanceof Float[]) {
+            return getMostFrequentElement((Double[]) array);
+        }
+        boolean instanceofInteger = false;
+        if (array instanceof Integer[]) {
+            array = integerToLong((Integer[]) array);
+            instanceofInteger = true;
+        }
+        if (array.length == 0) {
+            return null;
+        }
+        if (array.length == 1) {
+            return array[0];
+        }
+        long max = (long) Arrays.getBoundaryElement(array, true);
+        long min = (long) Arrays.getBoundaryElement(array, false);
+        Number[][] numCounts = new Number[(int) (max - min + 1)][2];
         for (int i = 0; i < numCounts.length; i++) {
             numCounts[i][0] = 0;
             numCounts[i][1] = -1;
         }
         for (int i = 0; i < array.length; i++) {
-            numCounts[array[i] - min][0]++;
-            if (numCounts[array[i] - min][1] == -1) {
-                numCounts[array[i] - min][1] = i;
+            numCounts[(int) (array[i].longValue() - min)][0] = numCounts[(int) (array[i].longValue() - min)][0].longValue() + 1;
+            if (numCounts[(int) (array[i].longValue() - min)][1].longValue() == -1) {
+                numCounts[(int) (array[i].longValue() - min)][1] = i;
             }
         }
-        int mostCommonElement = min;
-        int temp = Integer.MIN_VALUE;
+        long mostFrequentElement = min;
+        long currentMostFrequentElement = Long.MIN_VALUE;
         for (int i = 0; i < numCounts.length; i++) {
-            if (numCounts[i][0] > temp || (numCounts[i][0] == temp && numCounts[mostCommonElement - min][1] > numCounts[i][1])) {
-                temp = numCounts[i][0];
-                mostCommonElement = i + min;
+            if (numCounts[i][0].longValue() > currentMostFrequentElement || (numCounts[i][0].longValue() == currentMostFrequentElement && numCounts[(int) (mostFrequentElement - min)][1].longValue() > numCounts[i][1].longValue())) {
+                currentMostFrequentElement = numCounts[i][0].longValue();
+                mostFrequentElement = i + min;
             }
         }
-        return mostCommonElement;
+        if (!instanceofInteger) {
+            return mostFrequentElement;
+        } else {
+            return (int) mostFrequentElement;
+        }
     }
 
+    private static Double getMostFrequentElement(Double[] array) {
+        Long[] longArray = doubleToLong(array);
+        int pow = (int) (long) longArray[longArray.length - 1];
+        long mostFrequentElement = (long) getMostFrequentElement(longArray);
+        return mostFrequentElement * Math.pow(10, -pow);
+    }
+
+    private static Long[] doubleToLong(Double[] array) {
+        long k = 0L;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != (long) (double) array[i]) {
+                for (int j = 0; j < array.length; j++) {
+                    array[j] *= 10;
+                }
+                k++;
+            }
+        }
+        Long[] longArray = new Long[array.length + 1];
+        for (int i = 0; i < array.length; i++) {
+            longArray[i] = (long) (double) array[i];
+        }
+        longArray[array.length] = k;
+        return longArray;
+    }
+
+    private static Long[] integerToLong(Integer[] array) {
+        Long[] longArray = new Long[array.length];
+        for (int i = 0; i < array.length; i++) {
+            longArray[i] = (long) (int) array[i];
+        }
+        return longArray;
+    }
+
+    static int getIndex(int[] array, int number) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == number) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

@@ -231,17 +231,38 @@ public class ArraysTest {
     }
 
     @Test
-    public void testGetMaxElement() {
-        int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
-        assertEquals(Arrays.getBoundaryElement(array, true), 11, 0.00001);
-        assertNull(Arrays.getBoundaryElement(new int[]{}, true));
+    public void testGetMaxElementInteger() {
+        Integer[] array = new Integer[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
+        assertEquals((int) Arrays.getBoundaryElement(array, true), 11, 0.00001);
+        assertNull(Arrays.getBoundaryElement(new Integer[]{}, true));
+    }
+
+    @Test
+    public void testGetMaxElementLong() {
+        Long[] array = new Long[]{0L, -3L, 2L, 2L, -3L, 0L, 0L, 0L, 2L, -3L, 0L, -3L, 3L, 3L, 0L, -3L, 2L, -3L, 2L, 1L};
+        assertEquals((long) Arrays.getBoundaryElement(array, true), 3L, 0.00001);
+        assertNull(Arrays.getBoundaryElement(new Long[]{}, true));
+    }
+
+    @Test
+    public void testGetMaxElementFloat() {
+        Float[] array = new Float[]{0F, -3F, 2F, 2F, -3F, 0F, 0F, 0F, 2F, -3F, 0F, -3F, 3F, 3F, 0F, -3F, 2F, -3F, 2F, 1F};
+        assertEquals((float) Arrays.getBoundaryElement(array, true), 3L, 0.00001);
+        assertNull(Arrays.getBoundaryElement(new Long[]{}, true));
+    }
+
+    @Test
+    public void testGetMaxElementDouble() {
+        Double[] array = new Double[]{0D, -3D, 2D, 2D, -3D, 0D, 0D, 0D, 2D, -3D, 0D, -3D, 3D, 3D, 0D, -3D, 2D, -3D, 2D, 1D};
+        assertEquals((double) Arrays.getBoundaryElement(array, true), 3L, 0.00001);
+        assertNull(Arrays.getBoundaryElement(new Long[]{}, true));
     }
 
     @Test
     public void testGetMinElement() {
-        int[] array = new int[]{10, 4, 8, 2, 9, 4, 5, 11, 6};
-        assertEquals(Arrays.getBoundaryElement(array, false), 2, 0.00001);
-        assertNull(Arrays.getBoundaryElement(new int[]{}, false));
+        Integer[] array = new Integer[]{10, 4, 8, 2, 9, 4, 5, 11, 6};
+        assertEquals((int) Arrays.getBoundaryElement(array, false), 2, 0.00001);
+        assertNull(Arrays.getBoundaryElement(new Integer[]{}, false));
     }
 
     @Test
@@ -257,12 +278,35 @@ public class ArraysTest {
     }
 
     @Test
-    public void testGetMostCommonElement() {
-        int[] array = new int[]{0, -3, 2, 2, -3, 0, 0, 0, 2, -3, 0, -3, 3, 3, 0, -3, 2, -3, 2, 1};
-        assertEquals((int) Arrays.getMostCommonElement(array), 0);
+    public void testGetMostFrequentElementInteger() {
+        Integer[] array = new Integer[]{0, -3, 2, 2, -3, 0, 0, 0, 2, -3, 0, -3, 3, 3, 0, -3, 2, -3, 2, 1};
+        assertEquals((int) Arrays.getMostFrequentElement(array), 0);
         array[0] = array[0] - array[1];
         array[1] = array[0] + array[1];
         array[0] = -array[0] + array[1];
-        assertEquals((int) Arrays.getMostCommonElement(array), -3);
+        assertEquals((int) Arrays.getMostFrequentElement(array), -3);
+        assertNull(Arrays.getMostFrequentElement(new Number[]{}));
+        assertEquals(Arrays.getMostFrequentElement(new Number[]{1}), 1);
+    }
+
+    @Test
+    public void testGetMostFrequentElementLong() {
+        Long[] array = new Long[]{0L, -3L, 2L, 2L, -3L, 0L, 0L, 0L, 2L, -3L, 0L, -3L, 3L, 3L, 0L, -3L, 2L, -3L, 2L, 1L};
+        assertEquals((int) (long) Arrays.getMostFrequentElement(array), 0);
+        array[0] = array[0] - array[1];
+        array[1] = array[0] + array[1];
+        array[0] = -array[0] + array[1];
+        assertEquals((int) (long) Arrays.getMostFrequentElement(array), -3);
+    }
+
+    @Test
+    public void testGetMostFrequentElementDouble() {
+        Double[] array = new Double[]{0d, 0.5, 1d, 1.5, 1.2, 1.2, 1.7, 1.2};
+        assertEquals((double) Arrays.getMostFrequentElement(array), 1.2, 0.0001);
+    }
+
+    @Test
+    public void testGetIndex() {
+        assertEquals(Arrays.getIndex(new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6}, 4), 1);
     }
 }
