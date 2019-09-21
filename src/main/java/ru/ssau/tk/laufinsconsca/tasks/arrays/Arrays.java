@@ -371,4 +371,11 @@ class Arrays {
         array[indexOfMax] = array[indexOfMin];
         array[indexOfMin] = temp;
     }
+
+    static void not(Integer[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = ~array[i];
+        }
+    }
+
 }
