@@ -283,10 +283,10 @@ class Arrays {
         if (array instanceof Double[] || array instanceof Float[]) {
             return getMostFrequentElement((Double[]) array);
         }
-        boolean instanceofInteger = false;
+        boolean instanceOfInteger = false;
         if (array instanceof Integer[]) {
             array = integerToLong((Integer[]) array);
-            instanceofInteger = true;
+            instanceOfInteger = true;
         }
         if (array.length == 0) {
             return null;
@@ -315,7 +315,7 @@ class Arrays {
                 mostFrequentElement = i + min;
             }
         }
-        if (!instanceofInteger) {
+        if (!instanceOfInteger) {
             return mostFrequentElement;
         } else {
             return (int) mostFrequentElement;
@@ -355,12 +355,20 @@ class Arrays {
         return longArray;
     }
 
-    static int getIndex(int[] array, int number) {
+    static Integer getIndex(Number[] array, Number number) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == number) {
+            if (array[i].equals(number)) {
                 return i;
             }
         }
         return -1;
+    }
+
+    static void swapMinAndMaxElements(Number[] array) {
+        int indexOfMax = getIndex(array, getBoundaryElement(array, true));
+        int indexOfMin = getIndex(array, getBoundaryElement(array, false));
+        Number temp = array[indexOfMax];
+        array[indexOfMax] = array[indexOfMin];
+        array[indexOfMin] = temp;
     }
 }

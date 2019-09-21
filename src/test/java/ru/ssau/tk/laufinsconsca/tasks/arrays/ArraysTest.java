@@ -307,6 +307,13 @@ public class ArraysTest {
 
     @Test
     public void testGetIndex() {
-        assertEquals(Arrays.getIndex(new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6}, 4), 1);
+        assertEquals((int) Arrays.getIndex(new Integer[]{1, 4, 8, 2, 9, 4, 5, 11, 6}, 4), 1);
+    }
+
+    @Test
+    public void testSwapMinAndMaxElements() {
+        Integer[] array = new Integer[]{10, 4, 8, 2, 9, 4, 5, 11, 6};
+        Arrays.swapMinAndMaxElements(array);
+        assertEquals(array, new Integer[]{10, 4, 8, 11, 9, 4, 5, 2, 6});
     }
 }
