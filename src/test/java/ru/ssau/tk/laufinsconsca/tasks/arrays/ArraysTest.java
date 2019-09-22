@@ -6,24 +6,24 @@ import static org.testng.Assert.*;
 
 public class ArraysTest {
 
-    private final double accuracy = 0.0001;
+    private final double ACCURACY = 0.0001;
 
     @Test
     public void testGetRandomArray() {
         int dim = 10;
         double[] array = Arrays.getRandomArray(dim);
-        assertEquals(array.length, dim, accuracy);
+        assertEquals(array.length, dim, ACCURACY);
     }
 
     @Test
     public void testGetTwoOneTwoArray() {
         int dim = 10;
         double[] array = Arrays.getTwoOneTwoArray(dim);
-        assertEquals(array[0], 2, accuracy);
+        assertEquals(array[0], 2, ACCURACY);
         for (int i = 1; i < dim - 1; i++) {
-            assertEquals(array[i], 1, accuracy);
+            assertEquals(array[i], 1, ACCURACY);
         }
-        assertEquals(array[dim - 1], 2, accuracy);
+        assertEquals(array[dim - 1], 2, ACCURACY);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class ArraysTest {
         int dim = 10;
         double[] array = Arrays.getOddArray(dim);
         for (int i = 0; i < dim; i++) {
-            assertEquals(array[i], i * 2 + 1, accuracy);
+            assertEquals(array[i], i * 2 + 1, ACCURACY);
         }
     }
 
@@ -40,7 +40,7 @@ public class ArraysTest {
         int dim = 10;
         double[] array = Arrays.getEvenArrayInDescendingOrder(dim);
         for (int i = dim - 1; i >= 0; i--) {
-            assertEquals(array[i], i * 2 + 2, accuracy);
+            assertEquals(array[i], i * 2 + 2, ACCURACY);
         }
     }
 
@@ -48,30 +48,30 @@ public class ArraysTest {
     public void testGetFibonacciArray() {
         int dim = 10;
         double[] array = Arrays.getFibonacciArray(dim);
-        assertEquals(array[dim - 1], 55, accuracy);
+        assertEquals(array[dim - 1], 55, ACCURACY);
     }
 
     @Test
     public void testGetSquareArray() {
         int dim = 10;
         double[] array = Arrays.getSquareArray(dim);
-        assertEquals(array[dim - 1], 81, accuracy);
+        assertEquals(array[dim - 1], 81, ACCURACY);
     }
 
     @Test
     public void testGetSquareEquationArray() {
         double[] firstSolutionOfFullSquareEquation = Arrays.getSquareEquationArray(3, -11, 10);
         if (firstSolutionOfFullSquareEquation != null) {
-            assertEquals(firstSolutionOfFullSquareEquation[0], 2, accuracy);
-            assertEquals(firstSolutionOfFullSquareEquation[1], 5. / 3, accuracy);
+            assertEquals(firstSolutionOfFullSquareEquation[0], 2, ACCURACY);
+            assertEquals(firstSolutionOfFullSquareEquation[1], 5. / 3, ACCURACY);
         }
         double[] solutionOfLinearEquation = Arrays.getSquareEquationArray(0, 3, -9);
         if (firstSolutionOfFullSquareEquation != null) {
-            assertEquals(solutionOfLinearEquation[0], 3, accuracy);
+            assertEquals(solutionOfLinearEquation[0], 3, ACCURACY);
         }
         double[] secondSolutionOfFullSquareEquation = Arrays.getSquareEquationArray(2, -8, 8);
         if (secondSolutionOfFullSquareEquation != null) {
-            assertEquals(secondSolutionOfFullSquareEquation[0], 2, accuracy);
+            assertEquals(secondSolutionOfFullSquareEquation[0], 2, ACCURACY);
         }
 
         try {
@@ -96,25 +96,25 @@ public class ArraysTest {
     @Test
     public void testGetNaturalNumbersNotDivisibleByThree() {
         double[] array = Arrays.getNaturalNumbersNotDivisibleByThree(11);
-        assertEquals(array[0], 1, accuracy);
-        assertEquals(array[1], 2, accuracy);
-        assertEquals(array[2], 4, accuracy);
-        assertEquals(array[3], 5, accuracy);
-        assertEquals(array[4], 7, accuracy);
-        assertEquals(array[5], 8, accuracy);
-        assertEquals(array[6], 10, accuracy);
+        assertEquals(array[0], 1, ACCURACY);
+        assertEquals(array[1], 2, ACCURACY);
+        assertEquals(array[2], 4, ACCURACY);
+        assertEquals(array[3], 5, ACCURACY);
+        assertEquals(array[4], 7, ACCURACY);
+        assertEquals(array[5], 8, ACCURACY);
+        assertEquals(array[6], 10, ACCURACY);
     }
 
     @Test
     public void testArithmeticProgression() {
         double[] array = Arrays.getArithmeticProgression(0, 5, 11);
-        assertEquals(array[10], 50, accuracy);
+        assertEquals(array[10], 50, ACCURACY);
     }
 
     @Test
     public void testGeometricProgression() {
         double[] array = Arrays.getGeometricProgression(2, 2, 11);
-        assertEquals(array[10], 2048, accuracy);
+        assertEquals(array[10], 2048, ACCURACY);
     }
 
     @Test
@@ -122,9 +122,9 @@ public class ArraysTest {
         int[] fourthArray = Arrays.getDividersOfNumbers(256);
         for (int i = 0; i < fourthArray.length; i++) {
             if (i < 9) {
-                assertEquals(fourthArray[i], -Math.pow(2, 8 - i), accuracy);
+                assertEquals(fourthArray[i], -Math.pow(2, 8 - i), ACCURACY);
             } else {
-                assertEquals(fourthArray[i], Math.pow(2, i - 9), accuracy);
+                assertEquals(fourthArray[i], Math.pow(2, i - 9), ACCURACY);
             }
         }
 
@@ -186,8 +186,8 @@ public class ArraysTest {
             }
         }
         Arrays.negate(array);
-        assertEquals((array[0]).doubleValue(), 2, 0.00001);
-        assertEquals((array[3]).doubleValue(), -1, 0.00001);
+        assertEquals((array[0]).doubleValue(), 2, ACCURACY);
+        assertEquals((array[3]).doubleValue(), -1, ACCURACY);
     }
 
     @Test
@@ -233,14 +233,14 @@ public class ArraysTest {
     @Test
     public void testGetMaxElementInteger() {
         Integer[] array = new Integer[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
-        assertEquals((int) Arrays.getBoundaryElement(array, true), 11, 0.00001);
+        assertEquals((int) Arrays.getBoundaryElement(array, true), 11, ACCURACY);
         assertNull(Arrays.getBoundaryElement(new Integer[]{}, true));
     }
 
     @Test
     public void testGetMaxElementLong() {
         Long[] array = new Long[]{0L, -3L, 2L, 2L, -3L, 0L, 0L, 0L, 2L, -3L, 0L, -3L, 3L, 3L, 0L, -3L, 2L, -3L, 2L, 1L};
-        assertEquals((long) Arrays.getBoundaryElement(array, true), 3L, 0.00001);
+        assertEquals((long) Arrays.getBoundaryElement(array, true), 3L, ACCURACY);
         assertNull(Arrays.getBoundaryElement(new Long[]{}, true));
     }
 
@@ -268,7 +268,7 @@ public class ArraysTest {
     @Test
     public void testGetSumOfNumbersWithEvenIndices() {
         int[] array = new int[]{1, 4, 8, 2, 9, 4, 5, 11, 6};
-        assertEquals(Arrays.getSumOfNumbersWithEvenIndices(array), 29, 0.00001);
+        assertEquals(Arrays.getSumOfNumbersWithEvenIndices(array), 29, ACCURACY);
     }
 
     @Test
@@ -302,7 +302,7 @@ public class ArraysTest {
     @Test
     public void testGetMostFrequentElementDouble() {
         Double[] array = new Double[]{0d, 0.5, 1d, 1.5, 1.2, 1.2, 1.7, 1.2};
-        assertEquals((double) Arrays.getMostFrequentElement(array), 1.2, 0.0001);
+        assertEquals((double) Arrays.getMostFrequentElement(array), 1.2, ACCURACY);
     }
 
     @Test
