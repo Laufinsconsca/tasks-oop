@@ -341,4 +341,9 @@ public class ArraysTest {
         assertEquals(Arrays.getPairwiseSum(new int[]{10, 4, 8, 2, 9}), new int[]{14, 10, 9});
         assertEquals(Arrays.getPairwiseSum(new int[]{10, 4, 8, 2, 9, 1, 2, 5}), new int[]{14, 10, 10, 7});
     }
+
+    @Test
+    public void testIsEven() {
+        assertEquals(Arrays.isEven(new int[]{10, 4, -3, 2, 9}), new boolean[]{true, true, false, true, false});
+    }
 }

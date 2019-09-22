@@ -394,4 +394,12 @@ class Arrays {
         return result;
     }
 
+    static boolean[] isEven(int[] array){
+        boolean[] result = new boolean[array.length];
+        for(int i = 0; i < array.length; i++) {
+            result[i] = array[i] % 2 == 0;
+        }
+        return result;
+    }
+
 }
