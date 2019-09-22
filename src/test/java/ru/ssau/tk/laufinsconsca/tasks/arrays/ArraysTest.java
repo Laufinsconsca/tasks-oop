@@ -355,4 +355,14 @@ public class ArraysTest {
         assertEquals(Arrays.intToLong(Arrays.longToInt(-7079658614259982369L)), -7079658614259982369L);
         assertEquals(Arrays.intToLong(Arrays.longToInt(-2467972597980078113L)), -2467972597980078113L);
     }
+
+    @Test
+    public void testGetCyclicFillingArray() {
+        assertEquals(Arrays.getCyclicFillingArray(7, 4), new int[]{4, 5, 6, 7, 1, 2, 3});
+        try {
+            Arrays.getCyclicFillingArray(7, 7);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            assertEquals(e.getMessage(), "Index of the beginning of filling cannot be greater than the dimension of the array");
+        }
+    }
 }

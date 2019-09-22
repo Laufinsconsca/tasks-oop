@@ -403,11 +403,22 @@ class Arrays {
     }
 
     static int[] longToInt(long number) {
-        return new int[]{(int) (number >>> 32), (int) (number)};
+        return new int[]{(int) (number >>> 32), (int) number};
     }
 
     static long intToLong(int[] number) {
         return ((long) number[0] << 32) | ((long) number[1] & 4294967295L);
+    }
+
+    static int[] getCyclicFillingArray(int dim, int indexOfTheBeginningOfFilling) {
+        if (indexOfTheBeginningOfFilling >= dim) {
+            throw new ArrayIndexOutOfBoundsException("Index of the beginning of filling cannot be greater than the dimension of the array");
+        }
+        int[] result = new int[dim];
+        for (int i = 0; i < dim; i++) {
+            result[i + indexOfTheBeginningOfFilling - (i + indexOfTheBeginningOfFilling >= dim ? dim : 0)] = i + 1;
+        }
+        return result;
     }
 
 }
