@@ -346,4 +346,13 @@ public class ArraysTest {
     public void testIsEven() {
         assertEquals(Arrays.isEven(new int[]{10, 4, -3, 2, 9}), new boolean[]{true, true, false, true, false});
     }
+
+    @Test
+    public void testLongToInt() {
+        assertEquals(Arrays.intToLong(Arrays.longToInt(2143713422628356095L)), 2143713422628356095L);
+        assertEquals(Arrays.intToLong(Arrays.longToInt(2143713422594793439L)), 2143713422594793439L);
+        assertEquals(Arrays.intToLong(Arrays.longToInt(2143713420447309791L)), 2143713420447309791L);
+        assertEquals(Arrays.intToLong(Arrays.longToInt(-7079658614259982369L)), -7079658614259982369L);
+        assertEquals(Arrays.intToLong(Arrays.longToInt(-2467972597980078113L)), -2467972597980078113L);
+    }
 }

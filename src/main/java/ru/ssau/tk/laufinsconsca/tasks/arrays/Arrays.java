@@ -394,12 +394,20 @@ class Arrays {
         return result;
     }
 
-    static boolean[] isEven(int[] array){
+    static boolean[] isEven(int[] array) {
         boolean[] result = new boolean[array.length];
-        for(int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             result[i] = array[i] % 2 == 0;
         }
         return result;
+    }
+
+    static int[] longToInt(long number) {
+        return new int[]{(int) (number >>> 32), (int) (number)};
+    }
+
+    static long intToLong(int[] number) {
+        return ((long) number[0] << 32) | ((long) number[1] & 4294967295L);
     }
 
 }
