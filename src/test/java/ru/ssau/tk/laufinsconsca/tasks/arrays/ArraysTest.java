@@ -335,4 +335,10 @@ public class ArraysTest {
         Arrays.not(array);
         assertEquals(array, new int[]{10, 4, 8, 2, 9, 4, 5, 11, 6});
     }
+
+    @Test
+    public void testGetPairwiseSum() {
+        assertEquals(Arrays.getPairwiseSum(new int[]{10, 4, 8, 2, 9}), new int[]{14, 10, 9});
+        assertEquals(Arrays.getPairwiseSum(new int[]{10, 4, 8, 2, 9, 1, 2, 5}), new int[]{14, 10, 10, 7});
+    }
 }

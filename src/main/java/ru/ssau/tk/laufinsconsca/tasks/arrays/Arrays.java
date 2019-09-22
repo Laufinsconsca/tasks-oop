@@ -383,6 +383,15 @@ class Arrays {
         for (int i = 0; i < array.length; i++) {
             array[i] = ~array[i];
         }
-        return array;
+        return result;
     }
+
+    static int[] getPairwiseSum(int[] array) {
+        int[] result = new int[array.length / 2 + (array.length % 2 == 0 ? 0 : 1)];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = array[2 * i] + (2 * i + 1 < array.length ? array[2 * i + 1] : 0);
+        }
+        return result;
+    }
+
 }
