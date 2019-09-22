@@ -308,6 +308,7 @@ public class ArraysTest {
     @Test
     public void testGetIndex() {
         assertEquals((int) Arrays.getIndex(new Integer[]{1, 4, 8, 2, 9, 4, 5, 11, 6}, 4), 1);
+        assertEquals((int) Arrays.getIndex(new Integer[]{1, 4, 8, 2, 9, 4, 5, 11, 6}, 10), -1);
     }
 
     @Test
@@ -364,5 +365,10 @@ public class ArraysTest {
         } catch (ArrayIndexOutOfBoundsException e) {
             assertEquals(e.getMessage(), "Index of the beginning of filling cannot be greater than the dimension of the array");
         }
+    }
+
+    @Test
+    public void testGetTriangleArray() {
+        assertEquals(Arrays.getTriangleArray(4), new int[][]{{1, 2, 3, 4}, {5, 6, 7}, {8, 9}, {10}});
     }
 }

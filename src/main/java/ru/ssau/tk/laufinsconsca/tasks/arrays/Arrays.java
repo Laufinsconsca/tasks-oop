@@ -421,4 +421,17 @@ class Arrays {
         return result;
     }
 
+    static int[][] getTriangleArray(int dim) {
+        int[][] result = new int[dim][];
+        int k = 1;
+        for (int i = 0; i < dim; i++) {
+            result[i] = new int[dim - i];
+            for (int j = 0; j < dim - i; j++) {
+                result[i][j] = k;
+                k++;
+            }
+        }
+        return result;
+    }
+
 }
