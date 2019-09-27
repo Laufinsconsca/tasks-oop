@@ -74,23 +74,9 @@ public class ArraysTest {
             assertEquals(secondSolutionOfFullSquareEquation[0], 2, ACCURACY);
         }
 
-        try {
-            Arrays.getSquareEquationArray(0, 0, 5);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "The solution doesn't exist");
-        }
+        assertEquals(Arrays.getSquareEquationArray(0, 0, 5), new double[0]);
+        assertEquals(Arrays.getSquareEquationArray(3, 7, 10), new double[0]);
 
-        try {
-            Arrays.getSquareEquationArray(0, 0, 0);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "The solution belongs to the domain of all complex numbers");
-        }
-
-        try {
-            Arrays.getSquareEquationArray(3, 7, 10);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "The solution doesn't belong to the domain of real numbers");
-        }
     }
 
     @Test
@@ -117,7 +103,7 @@ public class ArraysTest {
         assertEquals(array[10], 2048, ACCURACY);
     }
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testGetDividersOfNumbers() {
         int[] fourthArray = Arrays.getDividersOfNumbers(256);
         for (int i = 0; i < fourthArray.length; i++) {
@@ -127,15 +113,10 @@ public class ArraysTest {
                 assertEquals(fourthArray[i], Math.pow(2, i - 9), ACCURACY);
             }
         }
-
-        try {
-            Arrays.getDividersOfNumbers(0);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "The set of all natural numbers are dividers excepts zero");
-        }
+        Arrays.getDividersOfNumbers(0);
     }
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testGetPrimeNumbersUpTo() throws NullPointerException {
         int[] array = Arrays.getPrimeNumbersUpTo(11);
         double accuracy = 0.0001;
@@ -145,15 +126,11 @@ public class ArraysTest {
         assertEquals(array[3], 5, accuracy);
         assertEquals(array[4], 7, accuracy);
         assertEquals(array[5], 11, accuracy);
-        try {
-            Arrays.getPrimeNumbersUpTo(0);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "Zero is not prime or compound number");
-        }
+        Arrays.getPrimeNumbersUpTo(0);
     }
 
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testGetSymmetricArray() {
         int[] firstArray = Arrays.getSymmetricArray(11);
         double accuracy = 0.0001;
@@ -168,11 +145,7 @@ public class ArraysTest {
         assertEquals(secondArray[1], 2, accuracy);
         assertEquals(secondArray[8], 2, accuracy);
         assertEquals(secondArray[5], 5, accuracy);
-        try {
-            Arrays.getSymmetricArray(0);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "Incorrect size");
-        }
+        Arrays.getSymmetricArray(0);
     }
 
     @Test

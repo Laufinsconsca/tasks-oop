@@ -3,9 +3,13 @@ package ru.ssau.tk.laufinsconsca.tasks.matrix;
 import java.io.*;
 
 public class Matrix implements Serializable {
-    private double[][] matrix;
     private final int countRow;
     private final int countColumn;
+    private double[][] matrix;
+
+    Matrix() {
+        this(0, 0);
+    }
 
     Matrix(int row, int column) {
         countColumn = column;

@@ -1,7 +1,5 @@
 package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
-import org.jetbrains.annotations.Nullable;
-
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -62,15 +60,10 @@ class Arrays {
         return array;
     }
 
-    @Nullable
-    static double[] getSquareEquationArray(double a, double b, double c) throws NullPointerException {
+    static double[] getSquareEquationArray(double a, double b, double c) {
         if (a == 0) {
             if (b == 0) {
-                if (c != 0) {
-                    throw new NullPointerException("The solution doesn't exist");
-                } else {
-                    throw new NullPointerException("The solution belongs to the domain of all complex numbers");
-                }
+                return new double[0];
             } else {
                 return new double[]{-c / b};
             }
@@ -81,7 +74,7 @@ class Arrays {
             } else if (b * b - 4 * a * c == 0) {
                 return new double[]{-b / (2 * a)};
             } else {
-                throw new NullPointerException("The solution doesn't belong to the domain of real numbers");
+                return new double[0];
             }
         }
     }
@@ -117,9 +110,9 @@ class Arrays {
         return array;
     }
 
-    static int[] getDividersOfNumbers(int number) throws NullPointerException {
+    static int[] getDividersOfNumbers(int number) {
         if (number == 0) {
-            throw new NullPointerException("The set of all natural numbers are dividers excepts zero");
+            throw new IllegalArgumentException("The set of all natural numbers are dividers excepts zero");
         }
         number = Math.abs(number);
         int count = 0;
@@ -144,7 +137,7 @@ class Arrays {
 
     static int[] getPrimeNumbersUpTo(int number) {
         if (number == 0) {
-            throw new NullPointerException("Zero is not prime or compound number");
+            throw new IllegalArgumentException("Zero is not prime or compound number");
         }
         LinkedList<Integer> temp = new LinkedList<>();
         temp.add(1);
@@ -163,7 +156,7 @@ class Arrays {
 
     static int[] getSymmetricArray(int size) {
         if (size <= 0) {
-            throw new NullPointerException("Incorrect size");
+            throw new IllegalArgumentException("Incorrect size");
         }
         int[] array = new int[size];
         for (int i = 0; i < Math.ceil((double) size / 2); i++) {

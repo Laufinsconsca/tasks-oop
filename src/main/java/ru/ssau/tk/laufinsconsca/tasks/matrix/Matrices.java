@@ -11,7 +11,7 @@ class Matrices {
     }
 
     private static Matrix addAndSubtractAndMultiplyOnTheNumber(Matrix firstMatrix, Matrix secondMatrix, double multiplyOnThe, boolean isAdd) {
-        if ((firstMatrix == null || secondMatrix == null) && multiplyOnThe == 1) {
+        if (secondMatrix == null && multiplyOnThe == 1 || firstMatrix == null) {
             return null;
         }
         if (secondMatrix != null && isIncompatibleDimensions(firstMatrix, secondMatrix, false)) {
