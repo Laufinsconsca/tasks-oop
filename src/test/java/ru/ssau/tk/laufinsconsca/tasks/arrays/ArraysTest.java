@@ -360,4 +360,9 @@ public class ArraysTest {
     public void testToString() {
         Arrays.toString("first", "second", "third", "fourth", "fifth");
     }
+
+    @Test
+    public void testMultiply() {
+        assertEquals(Arrays.multiply(new Double[]{1., 2., 3., Double.NEGATIVE_INFINITY, Double.NaN, 4., 5.}).doubleValue(), 120);
+    }
 }

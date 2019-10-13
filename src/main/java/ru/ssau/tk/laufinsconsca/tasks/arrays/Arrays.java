@@ -452,4 +452,16 @@ class Arrays {
         System.out.println(builder.toString());
     }
 
+    static Double multiply(Double[] array) {
+        double result = 1;
+        for (Double number : array) {
+            if (number.isNaN() || number == Double.POSITIVE_INFINITY || number == Double.NEGATIVE_INFINITY) {
+                continue;
+            }
+            result *= number;
+        }
+        return result;
+    }
+
+
 }
