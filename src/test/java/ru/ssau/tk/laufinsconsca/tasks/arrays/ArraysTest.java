@@ -2,6 +2,8 @@ package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
 import org.testng.annotations.Test;
 
+import java.util.Collection;
+
 import static org.testng.Assert.*;
 
 public class ArraysTest {
@@ -364,5 +366,14 @@ public class ArraysTest {
     @Test
     public void testMultiply() {
         assertEquals(Arrays.multiply(new Double[]{1., 2., 3., Double.NEGATIVE_INFINITY, Double.NaN, 4., 5.}).doubleValue(), 120);
+    }
+
+    @Test
+    public void testToHexString() {
+        int[] values = new int[]{14, 21, 36, 44, 57};
+        Collection<String> hexStrings = Arrays.toHexString(values);
+        for (String hexString : hexStrings) {
+            System.out.println(hexString);
+        }
     }
 }

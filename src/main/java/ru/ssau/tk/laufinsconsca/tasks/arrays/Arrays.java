@@ -1,5 +1,6 @@
 package ru.ssau.tk.laufinsconsca.tasks.arrays;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -461,6 +462,12 @@ class Arrays {
             result *= number;
         }
         return result;
+    }
+
+    static Collection<String> toHexString(int[] values) {
+        Collection<String> hexStrings = new LinkedList<>();
+        java.util.Arrays.stream(values).forEach(value -> hexStrings.add(Integer.toHexString(value)));
+        return hexStrings;
     }
 
 
