@@ -344,4 +344,15 @@ public class ArraysTest {
     public void testGetTriangleArray() {
         assertEquals(Arrays.getTriangleArray(4), new int[][]{{1, 2, 3, 4}, {5, 6, 7}, {8, 9}, {10}});
     }
+
+    @Test
+    public void testSort() {
+        Double[] array = new Double[]{3., 5., 2., 1.};
+        Double[] arrayWithNaN = new Double[]{3., 4., Double.NaN, 4.};
+        Arrays.sort(array);
+        Arrays.sort(arrayWithNaN);
+        assertTrue(Arrays.isSort(array));
+        assertFalse(Arrays.isSort(arrayWithNaN));
+
+    }
 }

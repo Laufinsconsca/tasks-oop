@@ -427,4 +427,20 @@ class Arrays {
         return result;
     }
 
+    static void sort(Double[] array) {
+        for (Double num : array) {
+            if (num.isNaN()) {
+                return;
+            }
+        }
+        java.util.Arrays.sort(array);
+    }
+
+    static boolean isSort(Double[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i].isNaN() || array[i] > array[i + 1]) return false;
+        }
+        return true;
+    }
+
 }
