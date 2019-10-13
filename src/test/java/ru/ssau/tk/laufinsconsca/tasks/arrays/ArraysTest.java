@@ -355,4 +355,9 @@ public class ArraysTest {
         assertFalse(Arrays.isSort(arrayWithNaN));
 
     }
+
+    @Test
+    public void testToString() {
+        Arrays.toString("first", "second", "third", "fourth", "fifth");
+    }
 }

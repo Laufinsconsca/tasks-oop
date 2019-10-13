@@ -443,4 +443,13 @@ class Arrays {
         return true;
     }
 
+    static void toString(String... array) {
+        StringBuilder builder = new StringBuilder();
+        for (String string : array) {
+            builder.append(string).append("\n");
+        }
+        builder.deleteCharAt(builder.length() - 1);
+        System.out.println(builder.toString());
+    }
+
 }
