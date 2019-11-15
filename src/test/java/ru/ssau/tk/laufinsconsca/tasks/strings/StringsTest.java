@@ -16,8 +16,13 @@ public class StringsTest {
     @Test
     public void testPrintBytes() {
         String firstString = "Test string";
-        String secondString = "Тестовая строка";
+        String secondString = "Test строка";
+        String thirdString = "Тестовая строка";
         Strings.printBytes(firstString);
+        System.out.println();
         Strings.printBytes(secondString);
+        System.out.println();
+        Strings.printBytes(thirdString);
     }
+
 }
