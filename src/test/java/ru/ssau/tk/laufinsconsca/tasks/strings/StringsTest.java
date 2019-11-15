@@ -2,6 +2,8 @@ package ru.ssau.tk.laufinsconsca.tasks.strings;
 
 import org.testng.annotations.Test;
 
+import static ru.ssau.tk.laufinsconsca.tasks.strings.Strings.isPalindrome;
+
 public class StringsTest {
 
     @Test
@@ -25,4 +27,13 @@ public class StringsTest {
         Strings.printBytes(thirdString);
     }
 
+    @Test
+    public void testIsPalindrome() {
+        String firstString = "градиент";
+        String secondString = "дивергенция";
+        String thirdString = "ротор";
+        System.out.println(isPalindrome(firstString));
+        System.out.println(isPalindrome(secondString));
+        System.out.println(isPalindrome(thirdString));
+    }
 }

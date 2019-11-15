@@ -27,4 +27,13 @@ public class Strings {
         System.out.println(first == second);
         System.out.println(first.equals(second));
     }
+
+    public static boolean isPalindrome(String string){
+        int length = string.length();
+        for (int i = 0; i < length; i++) {
+            if (string.charAt(i) != string.charAt(length - 1 - i)) return false;
+        }
+        return true;
+    }
+
 }
