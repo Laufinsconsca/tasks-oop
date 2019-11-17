@@ -1,5 +1,7 @@
 package ru.ssau.tk.laufinsconsca.tasks.strings;
 
+import java.util.Objects;
+
 public class Strings {
 
     public static void main(String[] args) {
@@ -34,6 +36,10 @@ public class Strings {
             if (string.charAt(i) != string.charAt(length - 1 - i)) return false;
         }
         return true;
+    }
+
+    public static boolean isDifferOnlyInCase(String first, String second){
+        return !Objects.equals(null, first) && !Objects.equals(null, second) && !first.equals(second) && first.equalsIgnoreCase(second);
     }
 
 }
