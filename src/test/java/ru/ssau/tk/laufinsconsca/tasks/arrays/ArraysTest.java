@@ -177,11 +177,7 @@ public class ArraysTest {
         }
         assertTrue(Arrays.doesArrayContainTheValue(array, -2));
         assertTrue(Arrays.doesArrayContainTheValue(array, 0.5));
-        try {
-            Arrays.doesArrayContainTheValue(null, 0);
-        } catch (NullPointerException e) {
-            assertEquals(e.getMessage(), "The empty array was passed");
-        }
+        assertThrows(NullPointerException.class, () -> Arrays.doesArrayContainTheValue(null, 0));
     }
 
     @Test
@@ -335,11 +331,7 @@ public class ArraysTest {
     @Test
     public void testGetCyclicFillingArray() {
         assertEquals(Arrays.getCyclicFillingArray(7, 4), new int[]{4, 5, 6, 7, 1, 2, 3});
-        try {
-            Arrays.getCyclicFillingArray(7, 7);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            assertEquals(e.getMessage(), "Index of the beginning of filling cannot be greater than the dimension of the array");
-        }
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> Arrays.getCyclicFillingArray(7, 7));
     }
 
     @Test
