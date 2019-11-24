@@ -54,4 +54,14 @@ public class Strings {
         System.out.println("Символ\\№" + ++i);
     }
 
+    public static int indexOfFirstEntry(String base, String searchable) {
+        return base.indexOf(searchable);
+    }
+
+    public static int indexOfFirstEntryInSecondPartOfBase(String base, String searchable) {
+        return base.indexOf(searchable, base.length()/2);
+    }
+
+
+
 }

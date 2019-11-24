@@ -2,11 +2,13 @@ package ru.ssau.tk.laufinsconsca.tasks.strings;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
-import static ru.ssau.tk.laufinsconsca.tasks.strings.Strings.isPalindrome;
+import static org.testng.Assert.*;
+import static ru.ssau.tk.laufinsconsca.tasks.strings.Strings.*;
 
 public class StringsTest {
+
+    String first = "В мире постоянны только монологи";
+    String second = "А климат переменится - вот увидишь";
 
     @Test
     public void testStringToCharArray() {
@@ -34,11 +36,9 @@ public class StringsTest {
         String firstString = "градиент";
         String secondString = "дивергенция";
         String thirdString = "ротор";
-        assertTrue(isPalindrome(firstString));
-        assertTrue(isPalindrome(secondString));
+        assertFalse(isPalindrome(firstString));
+        assertFalse(isPalindrome(secondString));
         assertTrue(isPalindrome(thirdString));
-        System.out.println(isPalindrome(secondString));
-        System.out.println(isPalindrome(thirdString));
     }
 
     @Test
@@ -52,5 +52,17 @@ public class StringsTest {
         assertFalse(Strings.isDifferOnlyInCase(null, secondString));
         assertFalse(Strings.isDifferOnlyInCase(firstString, null));
         assertFalse(Strings.isDifferOnlyInCase(null, null));
+    }
+
+    @Test
+    public void testIndexOfFirstEntry() {
+        assertEquals(indexOfFirstEntry(first, "ир"), 3);
+        assertEquals(indexOfFirstEntry(second, "ри"), -1);
+    }
+
+    @Test
+    public void testIndexOfFirstEntryInSecondPartOfBase() {
+        assertEquals(indexOfFirstEntryInSecondPartOfBase(first, "мон"), 24);
+        assertEquals(indexOfFirstEntryInSecondPartOfBase(second, "мир"), -1);
     }
 }
