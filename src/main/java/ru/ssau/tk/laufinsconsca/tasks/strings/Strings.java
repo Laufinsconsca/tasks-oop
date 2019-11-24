@@ -62,6 +62,8 @@ public class Strings {
         return base.indexOf(searchable, base.length()/2);
     }
 
-
+    public static int indexOfLastEntryInFirstPartOfBase(String base, String searchable) {
+        return base.lastIndexOf(searchable, base.length()/2);
+    }
 
 }

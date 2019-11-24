@@ -57,12 +57,18 @@ public class StringsTest {
     @Test
     public void testIndexOfFirstEntry() {
         assertEquals(indexOfFirstEntry(first, "ир"), 3);
-        assertEquals(indexOfFirstEntry(second, "ри"), -1);
+        assertEquals(indexOfFirstEntry(first, "ри"), -1);
     }
 
     @Test
     public void testIndexOfFirstEntryInSecondPartOfBase() {
         assertEquals(indexOfFirstEntryInSecondPartOfBase(first, "мон"), 24);
-        assertEquals(indexOfFirstEntryInSecondPartOfBase(second, "мир"), -1);
+        assertEquals(indexOfFirstEntryInSecondPartOfBase(first, "мир"), -1);
+    }
+
+    @Test
+    public void testIndexOfLastEntryInFirstPartOfBase() {
+        assertEquals(indexOfLastEntryInFirstPartOfBase(first, "мир"), 2);
+        assertEquals(indexOfLastEntryInFirstPartOfBase(first, "мон"), -1);
     }
 }
