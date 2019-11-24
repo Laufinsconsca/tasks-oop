@@ -81,5 +81,11 @@ public class Strings {
         return theNumberOfStringThatSatisfyTheCondition(strings, prefix, suffix);
     }
 
+    public static String recursiveReplaceAll(String base, String replaceable, String replacer){
+        for (int i = 0; i < 100 && base.contains(replaceable); i++){
+            base = base.replaceAll(replaceable, replacer);
+        }
+        return base;
+    }
 
 }

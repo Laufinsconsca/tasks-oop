@@ -1,5 +1,6 @@
 package ru.ssau.tk.laufinsconsca.tasks.strings;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -87,5 +88,10 @@ public class StringsTest {
         assertEquals(theNumberOfStringThatSatisfyTheConditionWithTrim(
                 new String[]{"Only", "a", " slight", "light", "was", "getting", "into", "sight "}, "s", "t"),
                 2);
+    }
+
+    @Test
+    public void testRecursiveReplaceAll() {
+        Assert.assertEquals(recursiveReplaceAll("opopopopo", "opo", "po"), "popppo");
     }
 }
