@@ -66,4 +66,12 @@ public class Strings {
         return base.lastIndexOf(searchable, base.length()/2);
     }
 
+    public static int theNumberOfStringThatSatisfyTheCondition(String[] strings, String prefix, String suffix) {
+        int number = 0;
+        for (String string : strings){
+            if (string.startsWith(prefix) && string.endsWith(suffix)) number++;
+        }
+        return number;
+    }
+
 }

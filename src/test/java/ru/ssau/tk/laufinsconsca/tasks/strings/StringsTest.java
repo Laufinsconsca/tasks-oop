@@ -71,4 +71,11 @@ public class StringsTest {
         assertEquals(indexOfLastEntryInFirstPartOfBase(first, "мир"), 2);
         assertEquals(indexOfLastEntryInFirstPartOfBase(first, "мон"), -1);
     }
+
+    @Test
+    public void testTheNumberOfStringThatSatisfyTheCondition() {
+        String[] strings = {"Only","a","slight","light","was","getting","into","sight"};
+        assertEquals(theNumberOfStringThatSatisfyTheCondition(strings, "s", "t"), 2);
+        assertEquals(theNumberOfStringThatSatisfyTheCondition(strings, "r", "i"), 0);
+    }
 }
