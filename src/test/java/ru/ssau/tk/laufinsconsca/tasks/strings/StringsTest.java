@@ -74,8 +74,18 @@ public class StringsTest {
 
     @Test
     public void testTheNumberOfStringThatSatisfyTheCondition() {
-        String[] strings = {"Only","a","slight","light","was","getting","into","sight"};
+        String[] strings = {"Only", "a", "slight", "light", "was", "getting", "into", "sight"};
         assertEquals(theNumberOfStringThatSatisfyTheCondition(strings, "s", "t"), 2);
         assertEquals(theNumberOfStringThatSatisfyTheCondition(strings, "r", "i"), 0);
+    }
+
+    @Test
+    public void testTheNumberOfStringThatSatisfyTheConditionWithTrim() {
+        assertEquals(theNumberOfStringThatSatisfyTheCondition(
+                new String[]{"Only", "a", " slight", "light", "was", "getting", "into", "sight "}, "s", "t"),
+                0);
+        assertEquals(theNumberOfStringThatSatisfyTheConditionWithTrim(
+                new String[]{"Only", "a", " slight", "light", "was", "getting", "into", "sight "}, "s", "t"),
+                2);
     }
 }

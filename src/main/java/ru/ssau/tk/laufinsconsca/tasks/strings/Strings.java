@@ -43,7 +43,7 @@ public class Strings {
         return !Objects.equals(null, first) && !Objects.equals(null, second) && !first.equals(second) && first.equalsIgnoreCase(second);
     }
 
-    public static void forCharacterEscaping(){
+    public static void forCharacterEscaping() {
         int i = 0;
         System.out.println("Символ\t№" + ++i);
         System.out.println("Символ\b№" + ++i);
@@ -59,19 +59,27 @@ public class Strings {
     }
 
     public static int indexOfFirstEntryInSecondPartOfBase(String base, String searchable) {
-        return base.indexOf(searchable, base.length()/2);
+        return base.indexOf(searchable, base.length() / 2);
     }
 
     public static int indexOfLastEntryInFirstPartOfBase(String base, String searchable) {
-        return base.lastIndexOf(searchable, base.length()/2);
+        return base.lastIndexOf(searchable, base.length() / 2);
     }
 
     public static int theNumberOfStringThatSatisfyTheCondition(String[] strings, String prefix, String suffix) {
         int number = 0;
-        for (String string : strings){
+        for (String string : strings) {
             if (string.startsWith(prefix) && string.endsWith(suffix)) number++;
         }
         return number;
     }
+
+    public static int theNumberOfStringThatSatisfyTheConditionWithTrim(String[] strings, String prefix, String suffix) {
+        for (int i = 0; i < strings.length; i++) {
+            strings[i] = strings[i].trim();
+        }
+        return theNumberOfStringThatSatisfyTheCondition(strings, prefix, suffix);
+    }
+
 
 }
