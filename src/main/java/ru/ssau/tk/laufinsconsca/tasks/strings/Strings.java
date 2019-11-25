@@ -88,4 +88,10 @@ public class Strings {
         return base;
     }
 
+    public static String extendedSubstring(String base, int from, int to) {
+        if (from >= to) return "";
+        if (from < 0) from = 0;
+        if (to > base.length()) to = base.length();
+        return base.substring(from, to);
+    }
 }

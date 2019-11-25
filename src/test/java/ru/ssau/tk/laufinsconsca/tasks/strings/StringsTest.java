@@ -94,4 +94,14 @@ public class StringsTest {
     public void testRecursiveReplaceAll() {
         Assert.assertEquals(recursiveReplaceAll("opopopopo", "opo", "po"), "popppo");
     }
+
+    @Test
+    public void testExtendedSubstring() {
+        String string = "imperturbability";
+        assertEquals(extendedSubstring(string, -2, 18), string);
+        assertEquals(extendedSubstring(string, 18, -2), "");
+        assertEquals(extendedSubstring(string, 2, 18), string.substring(2));
+        assertEquals(extendedSubstring(string, -2, 14), string.substring(0, 14));
+        assertEquals(extendedSubstring(string, 2, 14), string.substring(2, 14));
+    }
 }
