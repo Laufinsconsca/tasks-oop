@@ -78,5 +78,10 @@ public class Person {
     void setPassportId(int passportId) {
         this.passportId = passportId;
     }
+
+    @Override
+    public String toString() {
+        return firstName + (firstName.isEmpty() || lastName.isEmpty() ? "" : " ") + lastName;
+    }
 }
 
