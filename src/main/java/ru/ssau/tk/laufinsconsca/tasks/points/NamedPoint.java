@@ -1,5 +1,7 @@
 package ru.ssau.tk.laufinsconsca.tasks.points;
 
+import java.util.Objects;
+
 class NamedPoint extends Point implements Resettable {
     private String name;
 
@@ -28,5 +30,11 @@ class NamedPoint extends Point implements Resettable {
     @Override
     public void reset() {
         name = "Absent";
+    }
+
+    @Override
+    public String toString() {
+        if (Objects.equals(null, name)) return super.toString();
+        return name + " " + super.toString();
     }
 }

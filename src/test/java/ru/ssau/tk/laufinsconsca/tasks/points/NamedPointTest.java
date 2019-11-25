@@ -31,8 +31,14 @@ public class NamedPointTest {
 
     @Test
     public void testReset() {
-        Resettable namedPoint = new NamedPoint("Point", 2, 2, 1);
+        NamedPoint namedPoint = new NamedPoint("Point", 2, 2, 1);
         namedPoint.reset();
-        assertEquals(((NamedPoint) namedPoint).getName(), "Absent");
+        assertEquals(namedPoint.getName(), "Absent");
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals(new NamedPoint("x", 1, 4, 3).toString(), "x [1.0, 4.0, 3.0]");
+        assertEquals(new NamedPoint(-1, 0, 5).toString(), "[-1.0, 0.0, 5.0]");
     }
 }
