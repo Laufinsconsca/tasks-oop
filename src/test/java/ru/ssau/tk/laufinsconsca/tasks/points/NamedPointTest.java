@@ -41,4 +41,6 @@ public class NamedPointTest {
         assertEquals(new NamedPoint("x", 1, 4, 3).toString(), "x [1.0, 4.0, 3.0]");
         assertEquals(new NamedPoint(-1, 0, 5).toString(), "[-1.0, 0.0, 5.0]");
     }
+
+
 }

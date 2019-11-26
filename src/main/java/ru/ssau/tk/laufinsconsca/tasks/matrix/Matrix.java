@@ -1,6 +1,15 @@
 package ru.ssau.tk.laufinsconsca.tasks.matrix;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.xml.crypto.Data;
 import java.io.*;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+import java.util.stream.Stream;
 
 public class Matrix implements Serializable {
     private final int countRow;
@@ -58,5 +67,19 @@ public class Matrix implements Serializable {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public String toString(){
+        StringJoiner outerJoiner = new StringJoiner(";\n");
+        StringJoiner innerJoiner = new StringJoiner(",");
+        for (double[] row : matrix) {
+            for (double element : row) {
+                innerJoiner.add(element + "");
+            }
+            outerJoiner.add(innerJoiner.toString());
+            innerJoiner = new StringJoiner(",");
+        }
+        return outerJoiner.toString() + ";";
     }
 }
