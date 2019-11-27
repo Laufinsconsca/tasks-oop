@@ -98,4 +98,14 @@ public class Strings {
     public static void displayTheObjectInConsole(Object obj) {
         System.out.println(obj);
     }
+
+    public static String[] upperCaseSplit(String string) {
+        String[] strings = string.split(" ");
+        for (int i = 0; i < strings.length; i++) {
+            if (!strings[i].isEmpty()) {
+                strings[i] = strings[i].substring(0, 1).toUpperCase() + strings[i].substring(1);
+            }
+        }
+        return strings;
+    }
 }

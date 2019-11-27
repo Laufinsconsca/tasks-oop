@@ -13,7 +13,7 @@ import static ru.ssau.tk.laufinsconsca.tasks.strings.Strings.*;
 public class StringsTest {
 
     String first = "В мире постоянны только монологи";
-    String second = "А климат переменится - вот увидишь";
+    String second = "А климат переменится - вот увидишь"; // Смешарики: Монологи (181 серия)
 
     @Test
     public void testStringToCharArray() {
@@ -128,5 +128,17 @@ public class StringsTest {
         displayTheObjectInConsole(5);
         displayTheObjectInConsole(4.);
         displayTheObjectInConsole(new Complex(2, -3));
+    }
+
+    @Test
+    public void testUpperCaseSplit() {
+        String[] firstStrings = upperCaseSplit(first);
+        String[] secondStrings = upperCaseSplit(second);
+        for (String string : firstStrings) {
+            System.out.println(string);
+        }
+        for (String string : secondStrings) {
+            System.out.println(string);
+        }
     }
 }
