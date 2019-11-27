@@ -2,7 +2,7 @@ package ru.ssau.tk.laufinsconsca.tasks.points;
 
 import java.util.Objects;
 
-class NamedPoint extends Point implements Resettable {
+public class NamedPoint extends Point implements Resettable {
     private String name;
 
     NamedPoint() {
@@ -14,7 +14,7 @@ class NamedPoint extends Point implements Resettable {
         super(x, y, z);
     }
 
-    NamedPoint(String name, double x, double y, double z) {
+    public NamedPoint(String name, double x, double y, double z) {
         super(x, y, z);
         this.name = name;
     }

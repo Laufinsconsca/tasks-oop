@@ -21,7 +21,7 @@ public class Person {
         this.passportId = passportId;
     }
 
-    Person(String firstName, String lastName, int passportId) {
+    public Person(String firstName, String lastName, int passportId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passportId = passportId;

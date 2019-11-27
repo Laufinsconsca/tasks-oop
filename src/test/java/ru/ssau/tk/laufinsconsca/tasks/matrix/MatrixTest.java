@@ -2,8 +2,6 @@ package ru.ssau.tk.laufinsconsca.tasks.matrix;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 public class MatrixTest {
 
     @Test

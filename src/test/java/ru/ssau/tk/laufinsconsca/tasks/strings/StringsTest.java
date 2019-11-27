@@ -2,6 +2,10 @@ package ru.ssau.tk.laufinsconsca.tasks.strings;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ru.ssau.tk.laufinsconsca.tasks.matrix.Matrix;
+import ru.ssau.tk.laufinsconsca.tasks.person.Person;
+import ru.ssau.tk.laufinsconsca.tasks.points.NamedPoint;
+import ru.ssau.tk.laufinsconsca.tasks.points.Point;
 
 import static org.testng.Assert.*;
 import static ru.ssau.tk.laufinsconsca.tasks.strings.Strings.*;
@@ -103,5 +107,26 @@ public class StringsTest {
         assertEquals(extendedSubstring(string, 2, 18), string.substring(2));
         assertEquals(extendedSubstring(string, -2, 14), string.substring(0, 14));
         assertEquals(extendedSubstring(string, 2, 14), string.substring(2, 14));
+    }
+
+    @Test
+    public void testDisplayTheObjectInConsole() {
+        Matrix matrix = new Matrix(3, 3);
+        matrix.set(1, 1, 1);
+        matrix.set(1, 2, 2);
+        matrix.set(1, 3, 3);
+        matrix.set(2, 1, 4);
+        matrix.set(2, 2, 10);
+        matrix.set(2, 3, 12);
+        matrix.set(3, 1, -7);
+        matrix.set(3, 2, 8);
+        matrix.set(3, 3, -9);
+        displayTheObjectInConsole(matrix);
+        displayTheObjectInConsole(new Person("James", "Hawkins", 236232));
+        displayTheObjectInConsole(new Point(1, 4, 3));
+        displayTheObjectInConsole(new NamedPoint("x", 1, 4, 3));
+        displayTheObjectInConsole(5);
+        displayTheObjectInConsole(4.);
+        displayTheObjectInConsole(new Complex(2, -3));
     }
 }

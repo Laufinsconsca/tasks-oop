@@ -94,4 +94,8 @@ public class Strings {
         if (to > base.length()) to = base.length();
         return base.substring(from, to);
     }
+
+    public static void displayTheObjectInConsole(Object obj) {
+        System.out.println(obj);
+    }
 }

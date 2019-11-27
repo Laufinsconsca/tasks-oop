@@ -1,15 +1,7 @@
 package ru.ssau.tk.laufinsconsca.tasks.matrix;
 
-import org.jetbrains.annotations.NotNull;
-
-import javax.xml.crypto.Data;
 import java.io.*;
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
+import java.util.StringJoiner;
 
 public class Matrix implements Serializable {
     private final int countRow;
@@ -20,7 +12,7 @@ public class Matrix implements Serializable {
         this(0, 0);
     }
 
-    Matrix(int row, int column) {
+    public Matrix(int row, int column) {
         countColumn = column;
         countRow = row;
         matrix = new double[row][column];
@@ -45,7 +37,7 @@ public class Matrix implements Serializable {
         return countColumn;
     }
 
-    void set(int n, int m, double number) {
+    public void set(int n, int m, double number) {
         matrix[n - 1][m - 1] = number;
     }
 
@@ -70,7 +62,7 @@ public class Matrix implements Serializable {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringJoiner outerJoiner = new StringJoiner(";\n");
         StringJoiner innerJoiner = new StringJoiner(",");
         for (double[] row : matrix) {
