@@ -141,4 +141,10 @@ public class StringsTest {
             System.out.println(string);
         }
     }
+
+    @Test
+    public void testConcatArray() {
+        String[] strings = {"Only", "a", "slight", "light", "was", "getting", "into", "sight"};
+        assertEquals(Strings.concatArray(strings), "Only, a, slight, light, was, getting, into, sight");
+    }
 }
