@@ -129,5 +129,15 @@ public class Strings {
         return builder.reverse().toString();
     }
 
+    public static String getStrEnumOfNumsInAscOrder(int to) throws IllegalArgumentException{
+        if (to < 0) {
+            throw new IllegalArgumentException();
+        }
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < to; i++) {
+            builder.append(i);
+        }
+        return builder.toString();
+    }
 
 }

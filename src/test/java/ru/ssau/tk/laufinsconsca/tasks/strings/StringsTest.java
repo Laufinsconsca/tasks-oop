@@ -152,4 +152,13 @@ public class StringsTest {
     public void testReplaceTheEvenCharactersWithTheirNumbersAndRevert() {
         assertEquals(Strings.replaceTheEvenCharactersWithTheirNumbersAndRevert("imperturbability"), "y41i21i01a8r6t4e2m0");
     }
+
+    @Test
+    public void testGetStrEnumOfNumsInAscOrder() {
+        assertEquals(Strings.getStrEnumOfNumsInAscOrder(0), "");
+        assertEquals(Strings.getStrEnumOfNumsInAscOrder(1), "0");
+        assertEquals(Strings.getStrEnumOfNumsInAscOrder(5), "01234");
+        assertThrows(IllegalArgumentException.class, () -> Strings.getStrEnumOfNumsInAscOrder(-1));
+        System.out.println(Strings.getStrEnumOfNumsInAscOrder(10000));
+    }
 }
