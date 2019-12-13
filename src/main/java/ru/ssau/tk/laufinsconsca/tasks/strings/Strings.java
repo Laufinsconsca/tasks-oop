@@ -112,4 +112,22 @@ public class Strings {
     public static String concatArray(String[] array) {
         return String.join(", ", array);
     }
+
+    public static String replaceTheEvenCharactersWithTheirNumbersAndRevert(String string) {
+        StringBuilder builder = new StringBuilder(string);
+        int j = -2;
+        int t;
+        for (int i = 0; i < string.length(); i += 2) {
+            j += 2;
+            builder.replace(j, j + 1, i + "");
+            t = j;
+            while (t > 9) {
+                t /= 10;
+                j++;
+            }
+        }
+        return builder.reverse().toString();
+    }
+
+
 }

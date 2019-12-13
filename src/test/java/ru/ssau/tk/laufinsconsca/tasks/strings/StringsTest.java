@@ -147,4 +147,9 @@ public class StringsTest {
         String[] strings = {"Only", "a", "slight", "light", "was", "getting", "into", "sight"};
         assertEquals(Strings.concatArray(strings), "Only, a, slight, light, was, getting, into, sight");
     }
+
+    @Test
+    public void testReplaceTheEvenCharactersWithTheirNumbersAndRevert() {
+        assertEquals(Strings.replaceTheEvenCharactersWithTheirNumbersAndRevert("imperturbability"), "y41i21i01a8r6t4e2m0");
+    }
 }
