@@ -1,5 +1,6 @@
 package ru.ssau.tk.laufinsconsca.tasks.strings;
 
+import java.nio.charset.Charset;
 import java.util.Objects;
 
 public class Strings {
@@ -7,6 +8,7 @@ public class Strings {
     public static void main(String[] args) {
         testEquals();
         forCharacterEscaping();
+        findOutCharset();
     }
 
     public static void getChars(String string) {
@@ -138,4 +140,12 @@ public class Strings {
         return builder.toString();
     }
 
+    public static void findOutCharset(){
+        System.out.println(java.nio.charset.Charset.defaultCharset());
+    }
+
+    public static void changeCharset(String firstString, Charset first, Charset second){
+        String secondString = new String(firstString.getBytes(first), second);
+        System.out.println(secondString);
+    }
 }

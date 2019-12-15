@@ -7,6 +7,9 @@ import ru.ssau.tk.laufinsconsca.tasks.person.Person;
 import ru.ssau.tk.laufinsconsca.tasks.points.NamedPoint;
 import ru.ssau.tk.laufinsconsca.tasks.points.Point;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 import static org.testng.Assert.*;
 import static ru.ssau.tk.laufinsconsca.tasks.strings.Strings.*;
 
@@ -156,5 +159,10 @@ public class StringsTest {
         assertEquals(Strings.getStrEnumOfNumsInAscOrder(5), "01234");
         assertThrows(IllegalArgumentException.class, () -> Strings.getStrEnumOfNumsInAscOrder(-1));
         System.out.println(Strings.getStrEnumOfNumsInAscOrder(10000));
+    }
+
+    @Test
+    public void testChangeCharset() {
+        Strings.changeCharset(first, StandardCharsets.UTF_8, StandardCharsets.UTF_16BE);
     }
 }
