@@ -17,11 +17,7 @@ public class StringsTest {
 
     @Test
     public void testStringToCharArray() {
-        String string = "Test string";
-        char[] chars = Strings.getChars(string);
-        for (int i = 0; i < chars.length; i++) {
-            System.out.println(chars[i]);
-        }
+        Strings.getChars("Test string");
     }
 
     @Test

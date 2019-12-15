@@ -9,12 +9,10 @@ public class Strings {
         forCharacterEscaping();
     }
 
-    public static char[] getChars(String string) {
-        char[] chars = new char[string.length()];
+    public static void getChars(String string) {
         for (int i = 0; i < string.length(); i++) {
-            chars[i] = string.charAt(i);
+            System.out.println(string.charAt(i));
         }
-        return chars;
     }
 
     public static void printBytes(String string) {
